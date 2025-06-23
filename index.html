@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Tennis — Теннис в Екатериновке</title>
+  <title>Media Tennis — Турниры и сообщество</title>
   <style>
+    :root {
+      --bg-color: #111;
+      --text-color: #f4f4f4;
+      --accent-color: #bada55; /* теннисный мяч */
+      --secondary-color: #1c1c1c;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -12,23 +18,24 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #fff;
-      color: #111;
+      background: var(--bg-color);
+      color: var(--text-color);
       line-height: 1.6;
       padding-bottom: 60px;
     }
     header {
-      background: url('https://images.unsplash.com/photo-1606813908664-1d099404c225?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-      color: white;
-      padding: 100px 20px 60px;
+      background: var(--secondary-color);
+      color: var(--accent-color);
+      padding: 60px 20px 40px;
       text-align: center;
     }
     header h1 {
-      font-size: 2.2em;
+      font-size: 2em;
       margin-bottom: 0.3em;
     }
     header p {
       font-size: 1.1em;
+      color: #aaa;
     }
     section {
       padding: 30px 20px;
@@ -39,35 +46,61 @@
     h2 {
       font-size: 1.5em;
       margin-bottom: 0.5em;
-      color: #222;
+      color: var(--accent-color);
     }
-    p {
+    p, li {
       margin-bottom: 1em;
+      color: #ddd;
     }
-    .photo {
-      width: 100%;
+    .tournament {
+      background: var(--secondary-color);
+      border: 1px solid #2a2a2a;
+      padding: 15px;
+      margin-bottom: 20px;
       border-radius: 10px;
-      margin: 20px 0;
     }
-    .button {
+    .tournament h3 {
+      margin-bottom: 5px;
+      color: var(--text-color);
+    }
+    .status a {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+    .button, button {
       display: inline-block;
-      background: #007aff;
-      color: white;
+      background: var(--accent-color);
+      color: #111;
       padding: 12px 24px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
       margin-top: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .form-box {
+      margin-top: 30px;
+    }
+    input[type="tel"] {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #444;
+      width: 100%;
+      background: #222;
+      color: #fff;
+      margin-top: 10px;
     }
     footer {
-      background: #f9f9f9;
+      background: #1a1a1a;
       padding: 30px 20px;
       text-align: center;
+      margin-top: 40px;
     }
     .social-links a {
       margin: 0 10px;
       text-decoration: none;
-      color: #007aff;
+      color: var(--accent-color);
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -77,46 +110,43 @@
 </head>
 <body>
   <header>
-    <h1>Теннис в Екатериновке</h1>
-    <p>Индивидуальные и групповые тренировки на корте внутри посёлка</p>
+    <h1>Media Tennis</h1>
+    <p>Турниры. Медийность. Комьюнити.</p>
   </header>
 
   <section>
-    <h2>О тренере</h2>
-    <img src="https://media.tenor.com/JQJ1WBo8zCoAAAAC/tennis.gif" alt="Тренер Екатерина" class="photo" />
-    <p><strong>Екатерина</strong> — профессиональный тренер с более чем 12-летним опытом, экс 36-я ракетка России. Работает с детьми от 4 лет и взрослыми. Индивидуальный подход, реальные результаты.</p>
-  </section>
+    <h2>Ближайшие турниры</h2>
 
-  <section>
-    <h2>Форматы тренировок</h2>
-    <ul>
-      <li>🎾 Индивидуальные занятия</li>
-      <li>🤝 Сплит-тренировки (вдвоем)</li>
-      <li>👥 Групповые тренировки</li>
-    </ul>
-    <p>На свежем воздухе, рядом с домом, в окружении природы.</p>
-  </section>
+    <div class="tournament">
+      <h3>28.06.2025 (СБ) — Win&Vine</h3>
+      <p>Лужники</p>
+      <div class="status">🔒 Набор окончен — <a href="#">лист ожидания</a></div>
+    </div>
 
-  <section>
-    <h2>Подходит для</h2>
-    <p>✔️ Жителей Екатериновки</p>
-    <p>✔️ Взрослых и детей от 4 лет</p>
-    <p>✔️ Начинающих и продвинутых игроков</p>
-  </section>
+    <div class="tournament">
+      <h3>12.07.2025 (СБ) — Grand Moscow Slam</h3>
+      <p>Москва</p>
+      <div class="status">🟢 Набор идёт — <a href="#">Записаться</a></div>
+    </div>
 
-  <section>
-    <h2>Записаться</h2>
-    <a href="https://t.me/tennisvmoskve" class="button">Написать в Telegram</a>
+    <a href="https://t.me/tennisvmoskve" class="button">Продолжить в Telegram</a>
+
+    <div class="form-box">
+      <p>Для консерваторов:</p>
+      <input type="tel" placeholder="+7 ___ ___ __ __" />
+      <button>Оставить номер</button>
+    </div>
   </section>
 
   <footer>
-    <p>Связь в соцсетях:</p>
+    <p>Сотрудничество:</p>
+    <p>📣 Блогеры и UGC | 🎾 Тренеры | 🤝 Партнёры | 📍 Владельцы кортов</p>
     <div class="social-links">
       <a href="https://t.me/tennisvmoskve" target="_blank">Telegram</a>
       <a href="https://vk.com" target="_blank">VK</a>
       <a href="https://instagram.com" target="_blank">Instagram</a>
     </div>
-    <p>&copy; 2025 Media Tennis</p>
+    <p style="margin-top: 20px">&copy; 2025 Media Tennis</p>
   </footer>
 </body>
 </html>
