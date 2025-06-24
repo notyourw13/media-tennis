@@ -53,9 +53,12 @@
       font-weight: bold; margin-top: 20px; border: none; cursor: pointer;
     }
     .form-box { margin-top: 30px; }
-    input[type="tel"] {
+    input[type="tel"], textarea {
       padding: 12px; border-radius: 10px; border: 1px solid #444;
-      width: 100%; background: #222; color: #fff; margin-top: 10px;
+      width: 100%; background: #222; color: #fff; margin-top: 10px; margin-bottom: 10px;
+    }
+    .confirmation {
+      margin-top: 15px; color: var(--accent-color); font-weight: bold;
     }
     footer {
       background: #1a1a1a; padding: 30px 20px;
@@ -114,9 +117,11 @@
 
     <div class="form-box">
       <p>Для консерваторов:</p>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
+      <form id="contact-form">
         <input type="tel" name="phone" placeholder="+7 ___ ___ __ __" required />
+        <textarea name="message" placeholder="Сообщение (необязательно)"></textarea>
         <button type="submit">Оставить номер</button>
+        <div id="confirmation" class="confirmation" style="display:none;">ТЫ В ДЕЛЕ 🎾</div>
       </form>
     </div>
   </section>
@@ -128,12 +133,27 @@
       <a href="https://t.me/tennis_msk1">Тренеры</a>
       <a href="https://t.me/tennis_msk1">Бренды</a>
       <a href="https://t.me/tennis_msk1">Владельцы кортов</a>
-      <a href="https://t.me/tennis_msk1">и др.</a>
+      <a href="https://t.me/tennis_msk1">etc</a>
     </div>
-    <div class="credit">
-      Этот сайт и продвижение: <a href="https://t.me/FiniteIncantatum" style="color: var(--accent-color);">@FiniteIncantatum</a>
-    </div>
-    <p style="margin-top: 20px">&copy; 2025 Media Tennis</p>
+    <p style="margin-top: 20px">&copy; 2025 Media Tennis | сайт и автоматизация by <a href="https://t.me/FiniteIncantatum" style="color: var(--accent-color);">@FiniteIncantatum</a></p>
   </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const phone = this.phone.value;
+      const message = this.message.value;
+      fetch('https://api.apispreadsheets.com/data/kYScyDqbYWiYXFXH/', {
+        method: 'POST',
+        body: JSON.stringify({ "data": { "phone": phone, "message": message } }),
+        headers: { 'Content-Type': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          document.getElementById('confirmation').style.display = 'block';
+          this.reset();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
