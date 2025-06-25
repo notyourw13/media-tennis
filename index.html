@@ -31,6 +31,11 @@
       padding: 60px 20px 40px; text-align: center;
     }
     header h1 { font-size: 2em; margin-bottom: 0.3em; }
+    header h1::after {
+      content: ' 🎾';
+      animation: bounce 1s infinite;
+      display: inline-block;
+    }
     header p { font-size: 1.1em; color: #aaa; }
     section {
       padding: 30px 20px; max-width: 800px; margin: 0 auto;
@@ -74,6 +79,10 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
   </style>
 </head>
 <body>
@@ -88,13 +97,13 @@
     <div class="tournament">
       <h3>28.06.2025 (СБ) — Win&Vine</h3>
       <p>Лужники — турнир SantaFe + Afterparty</p>
-      <div class="status">🔒 Набор окончен — <a href="https://t.me/tennis_msk1">лист ожидания</a></div>
+      <div class="status">🔒 Набор окончен — <a href="https://t.me/tennisvmoskve">лист ожидания</a></div>
     </div>
 
     <div class="tournament">
       <h3>12.07.2025 (СБ) — Grand Moscow Slam</h3>
-      <p>СК Спартак — классический турнир</p>
-      <div class="status">🟢 Набор идёт — <a href="https://t.me/tennis_msk1">Записаться</a></div>
+      <p>Лужники — классический турнир</p>
+      <div class="status">🟢 Набор идёт — <a href="https://t.me/tennisvmoskve">Записаться</a></div>
     </div>
 
     <h2>Другие мероприятия</h2>
@@ -102,7 +111,7 @@
     <div class="tournament">
       <h3>05.07.2025 (СБ) — Business Tennis</h3>
       <p>Лужники — групповая тренировка + networking сессия</p>
-      <div class="status">🟡 Осталось 8/10 мест — <a href="https://t.me/tennis_msk1">Успеть записаться</a></div>
+      <div class="status">🟡 Осталось 8/10 мест — <a href="https://t.me/tennisvmoskve">Успеть записаться</a></div>
     </div>
 
     <h2>Организация корпоративных турниров</h2>
@@ -110,10 +119,10 @@
     <div class="tournament">
       <h3>По согласованию</h3>
       <p>Проводим по запросу — площадка и формат обсуждаются индивидуально</p>
-      <div class="status">📩 <a href="https://t.me/tennis_msk1">Оставить запрос</a></div>
+      <div class="status">📩 <a href="https://t.me/tennisvmoskve">Оставить запрос</a></div>
     </div>
 
-    <a href="https://t.me/tennis_msk1" class="button">Продолжить в Telegram</a>
+    <a href="https://t.me/tennisvmoskve" class="button">Продолжить в Telegram</a>
 
     <div class="form-box">
       <p>Для консерваторов:</p>
@@ -129,11 +138,11 @@
   <footer>
     <p>Сотрудничество:</p>
     <div class="links-block">
-      <a href="https://t.me/tennis_msk1">Блогеры и UGC</a>
-      <a href="https://t.me/tennis_msk1">Тренеры</a>
-      <a href="https://t.me/tennis_msk1">Бренды</a>
-      <a href="https://t.me/tennis_msk1">Владельцы кортов</a>
-      <a href="https://t.me/tennis_msk1">etc</a>
+      <a href="https://t.me/tennisvmoskve">Блогеры и UGC</a>
+      <a href="https://t.me/tennisvmoskve">Тренеры</a>
+      <a href="https://t.me/tennisvmoskve">Бренды</a>
+      <a href="https://t.me/tennisvmoskve">Владельцы кортов</a>
+      <a href="https://t.me/tennisvmoskve">etc</a>
     </div>
     <p style="margin-top: 20px">&copy; 2025 Media Tennis | сайт и автоматизация by <a href="https://t.me/FiniteIncantatum" style="color: var(--accent-color);">@FiniteIncantatum</a></p>
   </footer>
