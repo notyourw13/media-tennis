@@ -3,166 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Tennis — Турниры и сообщество</title>
-  <meta name="description" content="Теннисные турниры, мероприятия и коммьюнити в Москве. Участвуй в турнирах и нетворкинг-встречах от Media Tennis." />
-  <meta name="keywords" content="теннис, турниры, Москва, спорт, комьюнити, networking, блогеры, корпоративные турниры, тренеры, корт" />
-  <meta name="author" content="Media Tennis" />
-  <meta property="og:title" content="Media Tennis — Турниры и коммьюнити" />
-  <meta property="og:description" content="Участвуй в теннисных турнирах, нетворкинге и мероприятиях в Москве!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://media-tennis.ru/og-image.jpg" />
-  <meta property="og:url" content="https://media-tennis.ru" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Демо прыгающего мяча</title>
   <style>
-    :root {
-      --bg-color: #111;
-      --text-color: #f4f4f4;
-      --accent-color: #bada55;
-      --secondary-color: #1c1c1c;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-color); color: var(--text-color);
-      line-height: 1.6; padding-bottom: 60px;
+      background: #111;
+      color: #f4f4f4;
+      font-family: sans-serif;
+      padding: 40px;
     }
-    header {
-      background: var(--secondary-color); color: var(--accent-color);
-      padding: 60px 20px 40px; text-align: center;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
     }
-    header h1 { font-size: 2em; margin-bottom: 0.3em; }
-    header h1::after {
-      content: ' 🎾';
-      animation: bounce 1s infinite;
-      display: inline-block;
+    .example {
+      margin-bottom: 30px;
     }
-    header p { font-size: 1.1em; color: #aaa; }
-    section {
-      padding: 30px 20px; max-width: 800px; margin: 0 auto;
-      animation: fadeIn 0.8s ease-in;
-    }
-    h2 {
-      font-size: 1.5em; margin-bottom: 0.5em;
-      color: var(--accent-color);
-    }
-    p, li { margin-bottom: 1em; color: #ddd; }
-    .tournament {
-      background: var(--secondary-color); border: 1px solid #2a2a2a;
-      padding: 15px; margin-bottom: 20px; border-radius: 10px;
-    }
-    .tournament h3 { margin-bottom: 5px; color: var(--text-color); }
-    .status a { color: var(--accent-color); text-decoration: underline; }
-    .button, button {
-      display: inline-block; background: var(--accent-color); color: #111;
-      padding: 12px 24px; border-radius: 30px; text-decoration: none;
-      font-weight: bold; margin-top: 20px; border: none; cursor: pointer;
-    }
-    .form-box { margin-top: 30px; }
-    input[type="tel"], textarea {
-      padding: 12px; border-radius: 10px; border: 1px solid #444;
-      width: 100%; background: #222; color: #fff; margin-top: 10px; margin-bottom: 10px;
-    }
-    .confirmation {
-      margin-top: 15px; color: var(--accent-color); font-weight: bold;
-    }
-    footer {
-      background: #1a1a1a; padding: 30px 20px;
-      text-align: center; margin-top: 40px;
-    }
-    .links-block a {
-      display: inline-block; margin: 6px 12px;
-      text-decoration: none; color: var(--accent-color);
-      font-weight: bold;
-    }
-    .credit { font-size: 0.9em; color: #555; margin-top: 30px; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .variant1::after { content: ' 🎾'; animation: bounce 1s infinite; display: inline-block; }
+    .variant2::after { content: ' 🎾✨'; animation: bounce 1.2s infinite; display: inline-block; }
+    .variant3::after { content: ' 🎾🎾'; animation: bounce 0.9s infinite; display: inline-block; }
+    .variant4::after { content: ' 🎾⭐'; animation: bounce 1.1s infinite; display: inline-block; }
+    .variant5::after { content: ' 🎾⚡'; animation: bounce 1s infinite; display: inline-block; }
+    .variant6::after { content: ' 🎾💦'; animation: bounce 0.8s infinite; display: inline-block; }
+    .variant7::after { content: ' 🎾👏'; animation: bounce 1s infinite; display: inline-block; }
+    .variant8::after { content: ' 🎾🔥'; animation: bounce 1s infinite; display: inline-block; }
+    .variant9::after { content: ' 🎾⬆️'; animation: bounce 1s infinite; display: inline-block; }
+    .variant10::after { content: ' 🎾...'; animation: bounce 1.3s infinite; display: inline-block; }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
+    .label {
+      color: #aaa;
+      margin-top: 4px;
+      margin-bottom: 15px;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Media Tennis</h1>
-    <p>Турниры. Медийность. Комьюнити.</p>
-  </header>
 
-  <section>
-    <h2>Ближайшие турниры</h2>
+  <div class="example">
+    <h1 class="variant1">Media Tennis</h1>
+    <div class="label">Вариант 1: 🎾</div>
+  </div>
 
-    <div class="tournament">
-      <h3>28.06.2025 (СБ) — Win&Vine</h3>
-      <p>Лужники — турнир SantaFe + Afterparty</p>
-      <div class="status">🔒 Набор окончен — <a href="https://t.me/tennisvmoskve">лист ожидания</a></div>
-    </div>
+  <div class="example">
+    <h1 class="variant2">Media Tennis</h1>
+    <div class="label">Вариант 2: 🎾✨</div>
+  </div>
 
-    <div class="tournament">
-      <h3>12.07.2025 (СБ) — Grand Moscow Slam</h3>
-      <p>Лужники — классический турнир</p>
-      <div class="status">🟢 Набор идёт — <a href="https://t.me/tennisvmoskve">Записаться</a></div>
-    </div>
+  <div class="example">
+    <h1 class="variant3">Media Tennis</h1>
+    <div class="label">Вариант 3: 🎾🎾</div>
+  </div>
 
-    <h2>Другие мероприятия</h2>
+  <div class="example">
+    <h1 class="variant4">Media Tennis</h1>
+    <div class="label">Вариант 4: 🎾⭐</div>
+  </div>
 
-    <div class="tournament">
-      <h3>05.07.2025 (СБ) — Business Tennis</h3>
-      <p>Лужники — групповая тренировка + networking сессия</p>
-      <div class="status">🟡 Осталось 8/10 мест — <a href="https://t.me/tennisvmoskve">Успеть записаться</a></div>
-    </div>
+  <div class="example">
+    <h1 class="variant5">Media Tennis</h1>
+    <div class="label">Вариант 5: 🎾⚡</div>
+  </div>
 
-    <h2>Организация корпоративных турниров</h2>
+  <div class="example">
+    <h1 class="variant6">Media Tennis</h1>
+    <div class="label">Вариант 6: 🎾💦</div>
+  </div>
 
-    <div class="tournament">
-      <h3>По согласованию</h3>
-      <p>Проводим по запросу — площадка и формат обсуждаются индивидуально</p>
-      <div class="status">📩 <a href="https://t.me/tennisvmoskve">Оставить запрос</a></div>
-    </div>
+  <div class="example">
+    <h1 class="variant7">Media Tennis</h1>
+    <div class="label">Вариант 7: 🎾👏</div>
+  </div>
 
-    <a href="https://t.me/tennisvmoskve" class="button">Продолжить в Telegram</a>
+  <div class="example">
+    <h1 class="variant8">Media Tennis</h1>
+    <div class="label">Вариант 8: 🎾🔥</div>
+  </div>
 
-    <div class="form-box">
-      <p>Для консерваторов:</p>
-      <form id="contact-form">
-        <input type="tel" name="phone" placeholder="+7 ___ ___ __ __" required />
-        <textarea name="message" placeholder="Сообщение (необязательно)"></textarea>
-        <button type="submit">Оставить номер</button>
-        <div id="confirmation" class="confirmation" style="display:none;">ТЫ В ДЕЛЕ 🎾</div>
-      </form>
-    </div>
-  </section>
+  <div class="example">
+    <h1 class="variant9">Media Tennis</h1>
+    <div class="label">Вариант 9: 🎾⬆️</div>
+  </div>
 
-  <footer>
-    <p>Сотрудничество:</p>
-    <div class="links-block">
-      <a href="https://t.me/tennis_msk1">Блогеры и UGC</a>
-      <a href="https://t.me/tennis_msk1">Тренеры</a>
-      <a href="https://t.me/tennis_msk1">Бренды</a>
-      <a href="https://t.me/tennis_msk1">Владельцы кортов</a>
-      <a href="https://t.me/tennis_msk1">etc</a>
-    </div>
-    <p style="margin-top: 20px">&copy; 2025 Media Tennis | сайт и автоматизация by <a href="https://t.me/FiniteIncantatum" style="color: var(--accent-color);">@FiniteIncantatum</a></p>
-  </footer>
+  <div class="example">
+    <h1 class="variant10">Media Tennis</h1>
+    <div class="label">Вариант 10: 🎾...</div>
+  </div>
 
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const phone = this.phone.value;
-      const message = this.message.value;
-      fetch('https://api.apispreadsheets.com/data/kYScyDqbYWiYXFXH/', {
-        method: 'POST',
-        body: JSON.stringify({ "data": { "phone": phone, "message": message } }),
-        headers: { 'Content-Type': 'application/json' }
-      }).then(res => {
-        if (res.ok) {
-          document.getElementById('confirmation').style.display = 'block';
-          this.reset();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
