@@ -4,14 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Media Tennis — Турниры и сообщество</title>
-  <meta name="description" content="Теннисные турниры, мероприятия и коммьюнити в Москве. Участвуй в турнирах и нетворкинг-встречах от Media Tennis." />
-  <meta name="keywords" content="теннис, турниры, Москва, спорт, комьюнити, networking, блогеры, корпоративные турниры, тренеры, корт" />
-  <meta name="author" content="Media Tennis" />
-  <meta property="og:title" content="Media Tennis — Турниры и коммьюнити" />
-  <meta property="og:description" content="Участвуй в теннисных турнирах, нетворкинге и мероприятиях в Москве!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://media-tennis.ru/og-image.jpg" />
-  <meta property="og:url" content="https://media-tennis.ru" />
+  <meta name="description" content="Теннисные турниры, мероприятия и коммьюнити в Москве." />
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     :root {
@@ -34,13 +27,11 @@
     header p { font-size: 1.1em; color: #aaa; }
     section {
       padding: 30px 20px; max-width: 800px; margin: 0 auto;
-      animation: fadeIn 0.8s ease-in;
     }
     h2 {
       font-size: 1.5em; margin-bottom: 0.5em;
       color: var(--accent-color);
     }
-    p, li { margin-bottom: 1em; color: #ddd; }
     .tournament {
       background: var(--secondary-color); border: 1px solid #2a2a2a;
       padding: 15px; margin-bottom: 20px; border-radius: 10px;
@@ -70,9 +61,20 @@
       font-weight: bold;
     }
     .credit { font-size: 0.9em; color: #555; margin-top: 30px; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .slider-container {
+      position: relative; cursor: pointer;
+      max-width: 100%; height: 160px;
+      overflow: hidden; border-radius: 12px;
+    }
+    .slider-container.expanded { height: auto; }
+    .slider-container img {
+      width: 100%; display: block;
+      transition: transform 0.5s;
+    }
+    .caption {
+      font-size: 0.95em; color: #bbb; margin: 10px 0 25px;
+      text-align: center;
     }
   </style>
 </head>
@@ -83,46 +85,26 @@
   </header>
 
   <section>
-    <h2>Ближайшие турниры</h2>
+    <h2>Фото с Win&Vine (28.06)</h2>
+    <div class="slider-container" onclick="this.classList.toggle('expanded')">
+      <img src="img/IMG_2591%202.webp" alt="Фото 1" />
+      <img src="img/IMG_2618%202.webp" alt="Фото 2" />
+      <img src="img/IMG_2645%202.webp" alt="Фото 3" />
+    </div>
+    <div class="caption">Нажмите, чтобы развернуть / свернуть</div>
+
+    <h2>Турниры</h2>
 
     <div class="tournament">
-      <h3>28.06.2025 (СБ) — Win&Vine</h3>
+      <h3>28.06.2025 (CБ) — Win&Vine</h3>
       <p>Лужники — турнир SantaFe + Afterparty</p>
-      <div class="status">🔒 Набор окончен — <a href="https://t.me/tennisvmoskve">лист ожидания</a></div>
+      <div class="status">🍾 Завершен</div>
     </div>
 
     <div class="tournament">
-      <h3>12.07.2025 (СБ) — Grand Moscow Slam</h3>
-      <p>Лужники — классический турнир</p>
-      <div class="status">🟢 Набор идёт — <a href="https://t.me/tennisvmoskve">Записаться</a></div>
-    </div>
-
-    <h2>Другие мероприятия</h2>
-
-    <div class="tournament">
-      <h3>05.07.2025 (СБ) — Business Tennis</h3>
-      <p>Лужники — групповая тренировка + networking сессия</p>
-      <div class="status">🟡 Осталось 8/10 мест — <a href="https://t.me/tennisvmoskve">Успеть записаться</a></div>
-    </div>
-
-    <h2>Организация корпоративных турниров</h2>
-
-    <div class="tournament">
-      <h3>По согласованию</h3>
-      <p>Проводим по запросу — площадка и формат обсуждаются индивидуально</p>
-      <div class="status">📩 <a href="https://t.me/tennisvmoskve">Оставить запрос</a></div>
-    </div>
-
-    <a href="https://t.me/tennisvmoskve" class="button">Продолжить в Telegram</a>
-
-    <div class="form-box">
-      <p>Для консерваторов:</p>
-      <form id="contact-form">
-        <input type="tel" name="phone" placeholder="+7 ___ ___ __ __" required />
-        <textarea name="message" placeholder="Сообщение (необязательно)"></textarea>
-        <button type="submit">Оставить номер</button>
-        <div id="confirmation" class="confirmation" style="display:none;">ТЫ В ДЕЛЕ 🎾</div>
-      </form>
+      <h3>12.07.2025 (CБ) — Grand Moscow Slam</h3>
+      <p>Лужники — парный турнир (без подачи) + AfterParty</p>
+      <div class="status">🟢 Набор идёт — <a href="https://api.whatsapp.com/send/?phone=79969257890&text=%F0%9F%91%8B%0A%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F+%D0%BD%D0%B0+%D1%82%D1%83%D1%80%D0%BD%D0%B8%D1%80+12+%D0%B8%D1%8E%D0%BB%D1%8F%0A%D0%9C%D0%BE%D0%B9+%D1%83%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%3A&type=phone_number&app_absent=0">записаться</a></div>
     </div>
   </section>
 
@@ -133,27 +115,8 @@
       <a href="https://t.me/tennis_msk1">Тренеры</a>
       <a href="https://t.me/tennis_msk1">Бренды</a>
       <a href="https://t.me/tennis_msk1">Владельцы кортов</a>
-      <a href="https://t.me/tennis_msk1">etc</a>
     </div>
-    <p style="margin-top: 20px">&copy; 2025 Media Tennis | сайт и автоматизация by <a href="https://t.me/FiniteIncantatum" style="color: var(--accent-color);">@FiniteIncantatum</a></p>
+    <p style="margin-top: 20px">&copy; 2025 Media Tennis | сайт by <a href="https://t.me/FiniteIncantatum" style="color: var(--accent-color);">@FiniteIncantatum</a></p>
   </footer>
-
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const phone = this.phone.value;
-      const message = this.message.value;
-      fetch('https://api.apispreadsheets.com/data/kYScyDqbYWiYXFXH/', {
-        method: 'POST',
-        body: JSON.stringify({ "data": { "phone": phone, "message": message } }),
-        headers: { 'Content-Type': 'application/json' }
-      }).then(res => {
-        if (res.ok) {
-          document.getElementById('confirmation').style.display = 'block';
-          this.reset();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
