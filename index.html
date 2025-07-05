@@ -75,6 +75,7 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .gallery {
       display: flex;
       gap: 10px;
@@ -92,14 +93,21 @@
     .gallery img:hover {
       transform: scale(1.05);
     }
+
     table {
-      width: 100%; border-collapse: collapse; margin-top: 20px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      color: #ddd;
     }
     th, td {
-      border: 1px solid #333; padding: 8px; text-align: center;
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
     }
     th {
-      background-color: #222; color: var(--accent-color);
+      background-color: #222;
+      color: var(--accent-color);
     }
   </style>
 </head>
@@ -117,9 +125,15 @@
       <p>Лужники — турнир SantaFe + Afterparty</p>
       <div class="status">🍾 Завершен</div>
       <div class="gallery">
-        <a href="img/IMG_2591.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025"><img src="img/IMG_2591.webp" alt="Фото 1" /></a>
-        <a href="img/IMG_2618.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025"><img src="img/IMG_2618.webp" alt="Фото 2" /></a>
-        <a href="img/IMG_2645.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025"><img src="img/IMG_2645.webp" alt="Фото 3" /></a>
+        <a href="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025">
+          <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото 1" />
+        </a>
+        <a href="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025">
+          <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото 2" />
+        </a>
+        <a href="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025">
+          <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото 3" />
+        </a>
       </div>
     </div>
 
@@ -138,34 +152,32 @@
     </div>
 
     <div class="tournament">
-      <h3>16.07.2025 (СР) — Tennis Mafia</h3>
-      <p>Локация уточняется — играем в мафию, знакомимся и шутим о теннисистах 😄</p>
-      <div class="status">🟢 Запись открыта — <a href="https://api.whatsapp.com/send/?phone=79969257890&text=%F0%9F%91%8B%0A%D0%A5%D0%BE%D1%87%D1%83+%D0%BD%D0%B0+Tennis+Mafia+16.07%0A%D0%9C%D0%BE%D0%B9+%D1%82%D0%B5%D0%BB%D0%B5%D0%B3%D1%80%D0%B0%D0%BC%3A&type=phone_number&app_absent=0">записаться</a></div>
+      <h3>16.07.2025 — Tennis & Talk</h3>
+      <p>Игра в мафию для теннисистов — место уточняется</p>
+      <div class="status">🟢 Открыта запись — <a href="https://t.me/tennisvmoskve">записаться</a></div>
     </div>
+
+    <h2>Организация корпоративных турниров</h2>
 
     <div class="tournament">
-      <h3>21.07.2025 (ПН) — Tennis & Talk</h3>
-      <p>Микст игры + обсуждение коллабораций, турнирных форматов и историй из-за корта</p>
-      <div class="status">🟢 Запись открыта — <a href="https://api.whatsapp.com/send/?phone=79969257890&text=%F0%9F%91%8B%0A%D0%A5%D0%BE%D1%87%D1%83+%D0%BD%D0%B0+Tennis+%26+Talk+21.07%0A%D0%9C%D0%BE%D0%B9+%D1%82%D0%B5%D0%BB%D0%B5%D0%B3%D1%80%D0%B0%D0%BC%3A&type=phone_number&app_absent=0">записаться</a></div>
+      <h3>По согласованию</h3>
+      <p>Проводим по запросу — площадка и формат обсуждаются индивидуально</p>
+      <div class="status">📩 <a href="https://t.me/tennisvmoskve">Оставить запрос</a></div>
     </div>
 
-    <h2>Santa-Fe RTT рейтинг</h2>
+    <h2>Таблица Santa-Fe</h2>
     <table>
-      <thead>
-        <tr><th>ФИО</th><th>a.k.a.</th><th>Очки</th><th>Место</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Александр Серафимский</td><td>Саша Surfer</td><td>150</td><td>1</td></tr>
-        <tr><td>Маша Серафимская</td><td>Маша Surfersha</td><td>140</td><td>2</td></tr>
-        <tr><td>Александр Арутюнян</td><td>Саша Волк</td><td>133</td><td>3</td></tr>
-        <tr><td>Мария Шарапова</td><td>Маша Шар</td><td>120</td><td>4</td></tr>
-        <tr><td>Новак Джокерович</td><td>Джокер</td><td>115</td><td>5</td></tr>
-        <tr><td>Иван Козлов</td><td>Red Rocket</td><td>112</td><td>6</td></tr>
-        <tr><td>Лена Горшкова</td><td>Gorshka</td><td>109</td><td>7</td></tr>
-        <tr><td>Артём Никитин</td><td>Smashman</td><td>101</td><td>8</td></tr>
-        <tr><td>Светлана Иванова</td><td>Свет</td><td>98</td><td>9</td></tr>
-        <tr><td>Павел Дьяков</td><td>PD10</td><td>90</td><td>10</td></tr>
-      </tbody>
+      <tr><th>ФИО</th><th>a.k.a.</th><th>Очки</th><th>Место</th></tr>
+      <tr><td>Александр Серафимский</td><td>Саша Surfer</td><td>150</td><td>1</td></tr>
+      <tr><td>Маша Серафимская</td><td>Маша Surfersha</td><td>140</td><td>2</td></tr>
+      <tr><td>Александр Арутюнян</td><td>Саша Волк</td><td>133</td><td>3</td></tr>
+      <tr><td>Мария Шарапова</td><td>Маша Шар</td><td>120</td><td>4</td></tr>
+      <tr><td>Новак Джокерович</td><td>Джокер</td><td>115</td><td>5</td></tr>
+      <tr><td>Анна Теннисова</td><td>Анна Smash</td><td>112</td><td>6</td></tr>
+      <tr><td>Илья Макаров</td><td>Макс Serve</td><td>108</td><td>7</td></tr>
+      <tr><td>Юлия Орлова</td><td>Юля Slice</td><td>105</td><td>8</td></tr>
+      <tr><td>Дмитрий Кузьмин</td><td>Кузя Drop</td><td>102</td><td>9</td></tr>
+      <tr><td>Светлана Иванова</td><td>Света Rally</td><td>100</td><td>10</td></tr>
     </table>
 
     <a href="https://t.me/tennisvmoskve" class="button">Продолжить в Telegram</a>
