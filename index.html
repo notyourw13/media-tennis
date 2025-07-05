@@ -3,103 +3,131 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
+  <title>Тест 10 слайдеров</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Media Tennis — Турниры и сообщество</title>
-  <meta name="description" content="Теннисные турниры, мероприятия и коммьюнити в Москве. Участвуй в турнирах и нетворкинг-встречах от Media Tennis." />
-  <meta name="keywords" content="теннис, турниры, Москва, спорт, комьюнити, networking, блогеры, корпоративные турниры, тренеры, корт" />
-  <meta name="author" content="Media Tennis" />
-  <meta property="og:title" content="Media Tennis — Турниры и коммьюнити" />
-  <meta property="og:description" content="Участвуй в теннисных турнирах, нетворкинге и мероприятиях в Москве!" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://media-tennis.ru/og-image.jpg" />
-  <meta property="og:url" content="https://media-tennis.ru" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
   <style>
-    :root {
-      --bg-color: #111;
-      --text-color: #f4f4f4;
-      --accent-color: #bada55;
-      --secondary-color: #1c1c1c;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-color); color: var(--text-color);
-      line-height: 1.6; padding-bottom: 60px;
-    }
-    header {
-      background: var(--secondary-color); color: var(--accent-color);
-      padding: 60px 20px 40px; text-align: center;
-    }
-    header h1 { font-size: 2em; margin-bottom: 0.3em; }
-    header p { font-size: 1.1em; color: #aaa; }
-    section {
-      padding: 30px 20px; max-width: 800px; margin: 0 auto;
-      animation: fadeIn 0.8s ease-in;
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 20px;
     }
     h2 {
-      font-size: 1.5em; margin-bottom: 0.5em;
-      color: var(--accent-color);
+      margin-top: 40px;
+      color: #bada55;
     }
-    p, li { margin-bottom: 1em; color: #ddd; }
-    .tournament {
-      background: var(--secondary-color); border: 1px solid #2a2a2a;
-      padding: 15px; margin-bottom: 20px; border-radius: 10px;
-    }
-    .tournament h3 { margin-bottom: 5px; color: var(--text-color); }
-    .status a { color: var(--accent-color); text-decoration: underline; }
-    .gallery {
+    .slider {
       display: flex;
+      overflow-x: auto;
       gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
+      padding: 10px;
+      background: #222;
+      border-radius: 10px;
     }
-    .gallery img {
-      height: 80px;
+    .slider img {
+      height: 150px;
+      object-fit: cover;
       border-radius: 8px;
-      cursor: pointer;
-      border: 1px solid #333;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Media Tennis 🎾</h1>
-    <p>Турниры. Медийность. Комьюнити.</p>
+    <h1>Тест слайдеров Media Tennis 🎾</h1>
+    <p>Ниже — 10 вариантов отображения галереи</p>
   </header>
 
-  <section>
-    <h2>Турниры</h2>
-
-    <div class="tournament">
-      <h3>28.06.2025 (СБ) — Win&Vine</h3>
-      <p>Лужники — турнир SantaFe + Afterparty</p>
-      <div class="status">🍾 Завершен</div>
-      <div class="gallery">
-        <a href="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025">
-          <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото 1" />
-        </a>
-        <a href="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025">
-          <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото 2" />
-        </a>
-        <a href="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" data-lightbox="winvine" data-title="Win&Vine — 28.06.2025">
-          <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото 3" />
-        </a>
+  
+    <section>
+      <h2>Слайдер 1</h2>
+      <div class="slider slider-1">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
       </div>
-    </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 2</h2>
+      <div class="slider slider-2">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 3</h2>
+      <div class="slider slider-3">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 4</h2>
+      <div class="slider slider-4">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 5</h2>
+      <div class="slider slider-5">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 6</h2>
+      <div class="slider slider-6">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 7</h2>
+      <div class="slider slider-7">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 8</h2>
+      <div class="slider slider-8">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 9</h2>
+      <div class="slider slider-9">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
+    <section>
+      <h2>Слайдер 10</h2>
+      <div class="slider slider-10">
+        <img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2591%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2618%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+<img src="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/IMG_2645%202.webp" alt="Фото с турнира" style="width: 100px; margin: 5px;">
+      </div>
+    </section>
+    
 
-    <div class="tournament">
-      <h3>12.07.2025 (СБ) — Grand Moscow Slam</h3>
-      <p>Лужники — парный турнир (без подачи) + AfterParty</p>
-      <div class="status">🟢 Набор идёт — <a href="https://api.whatsapp.com/send/?phone=79969257890&text=%F0%9F%91%8B%0A%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F+%D0%BD%D0%B0+%D1%82%D1%83%D1%80%D0%BD%D0%B8%D1%80+12+%D0%B8%D1%8E%D0%BB%D1%8F%0A%D0%9C%D0%BE%D0%B9+%D1%83%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C%3A&type=phone_number&app_absent=0">записаться</a></div>
-    </div>
-  </section>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>
