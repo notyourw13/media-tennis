@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ</title>
   <style>
     :root{
       --bg:#111; --text:#f4f4f4; --accent:#bada55; --sec:#1c1c1c; --border:#2a2a2a;
-      /* ссылка на банку Aztano (замени на свою обработанную при необходимости) */
-      --aziano-url: url("https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/Aziano.png");
+      /* если положишь белую банку в /img/, поменяй ссылку ниже */
+      --aziano-url:url("https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/Aziano.png");
     }
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
@@ -16,36 +16,27 @@
     header h1{font-size:2em;margin-bottom:.3em}
     header p{font-size:1.1em;color:#aaa}
 
-    /* общий контейнер секции */
     section{padding:30px 20px}
     .center-wrap{max-width:1000px;margin:0 auto}
 
-    /* карточка блока */
-    .card{background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:20px;margin:0 auto 28px auto;width:fit-content;max-width:100%}
-
-    h2{font-size:1.5em;margin-bottom:.5em;color:var(--accent);text-align:left;white-space:pre-line}
+    .card{background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:20px;margin:0 auto 28px;width:fit-content;max-width:100%}
+    h2{font-size:1.6em;margin-bottom:.5em;color:var(--accent);white-space:pre-line}
 
     .table-wrap{overflow-x:auto;padding-right:12px}
     table{border-collapse:collapse;color:#ddd;min-width:640px;margin:0 auto}
     th,td{border:1px solid #444;padding:10px;text-align:center;vertical-align:middle;white-space:nowrap}
     th{background:#222;color:var(--accent)}
 
-    /* столбец с банкой */
     .drink-col{min-width:78px;width:78px}
     th.drink-col{position:relative;padding:0;background:#222}
-    th.drink-col::before{
-      content:"";display:block;width:100%;height:60px;
-      background-image:var(--aziano-url);background-size:contain;background-repeat:no-repeat;background-position:center;
-    }
+    th.drink-col::before{content:"";display:block;width:100%;height:60px;background-image:var(--aziano-url);background-size:contain;background-repeat:no-repeat;background-position:center}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     td.drink-col{padding-right:8px}
 
-    /* выравнивание подвала */
     footer{background:#1a1a1a;padding:30px 20px;margin-top:32px}
     .footer-inner{max-width:1000px;margin:0 auto;text-align:center}
     .links-block a{display:inline-block;margin:6px 12px;text-decoration:none;color:var(--accent);font-weight:bold}
 
-    /* мобильные правки */
     @media (max-width:420px){
       th,td{padding:9px;font-size:15px}
       th.drink-col::before{height:56px}
