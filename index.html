@@ -5,19 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ</title>
 
-  <!-- превью для шаринга в соцсетях -->
   <meta property="og:title" content="Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ">
   <meta property="og:description" content="Турниры. Медийность. Комьюнити. Болей за меня онлайн!">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://notyourw13.github.io/media-tennis/">
-  <!-- (опционально) добавь превью 1200×630 -->
   <meta property="og:image" content="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/preview.jpg">
 
   <style>
     :root{
-      --bg:#111; --text:#f4f4f4; --accent:#bada55; --sec:#1c1c1c; --border:#2a2a2a;
-      --muted:#9aa0a6;
-      /* иконка напитка */
+      --bg:#111; --text:#f4f4f4; --accent:#bada55; --sec:#1c1c1c; --border:#2a2a2a; --muted:#9aa0a6;
       --aziano:url("https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/aziano.png");
     }
     *{margin:0;padding:0;box-sizing:border-box}
@@ -28,11 +24,11 @@
 
     section{padding:28px 16px}
     .center{max-width:1000px;margin:0 auto}
-
     .card{background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:18px;margin:0 auto 24px;max-width:1000px}
     h2{font-size:1.4em;margin:4px 0 10px;color:var(--accent);text-align:center}
     .divider{height:1px;background:var(--border);margin:18px 0}
 
+    /* таблицы */
     .table-wrap{overflow-x:auto}
     table{border-collapse:collapse;color:#ddd;min-width:320px;table-layout:fixed;width:100%}
     th,td{border:1px solid #424242;padding:9px 8px;text-align:center;vertical-align:middle}
@@ -45,33 +41,29 @@
     .pair{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
     .player{display:block;line-height:1.25}
     .player small{color:var(--muted);margin-left:6px}
-    td.col-pair{ text-align:left }
+    td.col-pair{text-align:left}
 
-    /* Заголовок П/И на мобиле */
-    .short{display:none}
-    .full{display:inline}
-
-    /* Колонка Азиано — выше */
-    th.col-az{position:relative;padding:0;background:#222}
+    /* Азиано: картинка + отступы */
+    th.col-az{position:relative;padding:10px 0;background:#222}
     th.col-az::before{
-      content:"";display:block;height:80px;
-      background-image:var(--aziano);background-size:contain;background-position:center;background-repeat:no-repeat
+      content:"";display:block;height:80px;margin:6px 0; /* отступ сверху/снизу */
+      background-image:var(--aziano);background-size:contain;background-position:center;background-repeat:no-repeat;
     }
-    .drink-cell{height:84px}
+    .drink-cell{height:92px;padding:10px 0} /* чтобы строки были повыше */
 
-    /* Шаринг */
-    .sharebar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:6px 0 10px}
-    .btn{background:#2a2a2a;border:1px solid #3a3a3a;border-radius:10px;padding:10px 14px;color:#f4f4f4;text-decoration:none;cursor:pointer}
+    /* SHARE */
+    .sharebar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 12px}
+    .btn{background:#2a2a2a;border:1px solid #3a3a3a;border-radius:10px;padding:10px 16px;color:#f4f4f4;text-decoration:none;cursor:pointer}
     .btn:hover{border-color:#555}
 
-    /* Меню-шейт */
+    /* SHEET */
     .sheet-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:flex-end;z-index:10}
     .sheet{background:#1b1b1b;border-top-left-radius:14px;border-top-right-radius:14px;width:100%;max-width:520px;margin:0 auto;padding:12px;border:1px solid #2a2a2a}
     .sheet h3{font-size:1.05em;text-align:center;margin:4px 0 10px;color:#ddd}
     .sheet .act{width:100%;text-align:center;margin:6px 0}
     .note{color:#9aa0a6;font-size:.9em;text-align:center;margin-top:6px}
 
-    /* Галерея фото */
+    /* ФОТО */
     .photos{margin:12px auto 6px;max-width:1000px}
     .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
     .grid a{display:block;position:relative;padding-bottom:100%;overflow:hidden;border-radius:8px;border:1px solid #2a2a2a;background:#0f0f0f}
@@ -90,17 +82,14 @@
       th,td{padding:7px}
       .pair{gap:3px}
       .player{font-size:15px}
-      .short{display:inline}.full{display:none}
       th.col-az::before{height:86px}
-      .drink-cell{height:90px}
+      .drink-cell{height:96px}
       .grid{grid-template-columns:repeat(4,1fr)}
     }
     @media (max-width:360px){
-      th,td{padding:6px;font-size:15px}
+      th,td{padding:6px;font-size:15px;border-width:.5px}
       .grid{grid-template-columns:repeat(3,1fr)}
       .col-pair{width:60%}.col-wg{width:24%}.col-az{width:16%}
-      /* тоньше бордеры — визуально помещается больше */
-      th,td{border-width:.5px}
     }
   </style>
 </head>
@@ -121,49 +110,27 @@
           <table id="table-tournament">
             <tr>
               <th class="col-pair">Пара</th>
-              <th class="col-wg">
-                <span class="full">Победы / Игры</span>
-                <span class="short">П/И</span>
-              </th>
-              <th class="col-az"><span class="sr-only">Партнёрский напиток</span></th>
+              <th class="col-wg">W/G</th>
+              <th class="col-az"><!-- пусто: только банка --></th>
             </tr>
 
-            <!-- пример строк (формат: два игрока столбиком) -->
-            <tr>
-              <td class="col-pair">
-                <div class="pair">
-                  <span class="player">Донсков <small>4.5</small></span>
-                  <span class="player">Полунина <small>3.5</small></span>
-                </div>
-              </td>
-              <td>— / —</td>
-              <td class="drink-cell">0</td>
-            </tr>
-            <tr>
-              <td class="col-pair">
-                <div class="pair">
-                  <span class="player">Харламов <small>4.0</small></span>
-                  <span class="player">Ерошкина <small>3.5</small></span>
-                </div>
-              </td>
-              <td>— / —</td>
-              <td class="drink-cell">0</td>
-            </tr>
-            <tr>
-              <td class="col-pair">
-                <div class="pair">
-                  <span class="player">Ерошева <small>3.5</small></span>
-                  <span class="player">Данг <small>4.0</small></span>
-                </div>
-              </td>
-              <td>— / —</td>
-              <td class="drink-cell">0</td>
-            </tr>
-            <!-- …дальше по списку как у тебя… -->
+            <!-- 1..12 — все пары -->
+            <tr><td class="col-pair"><div class="pair"><span class="player">Донсков <small>4.5</small></span><span class="player">Полунина <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Харламов <small>4.0</small></span><span class="player">Ерошкина <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Ерошева <small>3.5</small></span><span class="player">Данг <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Тонко <small>3.0</small></span><span class="player">Долгополова <small>3.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Видгоф А <small>4.0</small></span><span class="player">Видгоф Е <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Михеева <small>3.0</small></span><span class="player">Старков <small>3.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Ким <small>3.5</small></span><span class="player">Милосердов <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Спирина <small>2.0</small></span><span class="player">Рабаев <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Бенин <small>3.0</small></span><span class="player">Арушанян <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Шабаш <small>4.5</small></span><span class="player">Безмаева <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Ким Д <small>2.5</small></span><span class="player">Ким И <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Сунцова <small>3.0</small></span><span class="player">Панфилов <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
           </table>
         </div>
 
-        <!-- Share -->
+        <!-- ЕДИНАЯ кнопка -->
         <div class="sharebar">
           <button class="btn" id="btn-open-share">Поделиться</button>
         </div>
@@ -180,7 +147,7 @@
           </div>
         </div>
 
-        <!-- Фото-блок -->
+        <!-- Фото-блок (между кнопками и рейтингом) -->
         <div class="photos" id="photos">
           <div class="ph-head">
             <h3>Фото с турнира</h3>
@@ -192,27 +159,25 @@
         <div class="divider"></div>
 
         <!-- Рейтинг -->
-        <h2>Рейтинг РСТ<br>Российский Санта‑Фе Тур</h2>
+        <h2>Рейтинг РСТ (формируется… ⚙️)<br>Российский Санта‑Фе Тур</h2>
         <div class="table-wrap">
           <table>
             <tr>
-              <th>№</th>
-              <th>Игрок</th>
-              <th>a.k.a.</th>
-              <th>Очки</th>
-              <th>Турниры / Победы</th>
-              <th class="col-az"><span class="sr-only">Партнёрский напиток</span></th>
+              <th style="width:12%">№</th>
+              <th style="width:44%">Игрок</th>
+              <th style="width:24%">a.k.a.</th>
+              <th style="width:20%">Очки</th>
             </tr>
-            <tr><td>1</td><td>Александр Серафимский</td><td>Саша Surfer</td><td>150</td><td>5 / 2</td><td class="drink-cell">3</td></tr>
-            <tr><td>2</td><td>Маша Серафимская</td><td>Маша Surfersha</td><td>140</td><td>5 / 1</td><td class="drink-cell">1</td></tr>
-            <tr><td>3</td><td>Александр Арутюнян</td><td>Саша Волк</td><td>133</td><td>4 / 1</td><td class="drink-cell">2</td></tr>
-            <tr><td>4</td><td>Мария Шарапова</td><td>Маша Шар</td><td>120</td><td>4 / 1</td><td class="drink-cell">4</td></tr>
-            <tr><td>5</td><td>Новак Джокерович</td><td>Джокер</td><td>115</td><td>4 / 0</td><td class="drink-cell">2</td></tr>
-            <tr><td>6</td><td>Анна Теннисова</td><td>Анна Smash</td><td>112</td><td>3 / 1</td><td class="drink-cell">5</td></tr>
-            <tr><td>7</td><td>Илья Макаров</td><td>Макс Serve</td><td>108</td><td>3 / 0</td><td class="drink-cell">1</td></tr>
-            <tr><td>8</td><td>Юлия Орлова</td><td>Юля Slice</td><td>105</td><td>3 / 0</td><td class="drink-cell">3</td></tr>
-            <tr><td>9</td><td>Дмитрий Кузьмин</td><td>Кузя Drop</td><td>102</td><td>2 / 0</td><td class="drink-cell">2</td></tr>
-            <tr><td>10</td><td>Светлана Иванова</td><td>Света Rally</td><td>100</td><td>2 / 0</td><td class="drink-cell">4</td></tr>
+            <tr><td>1</td><td>Александр Серафимский</td><td>Саша Surfer</td><td>150</td></tr>
+            <tr><td>2</td><td>Маша Серафимская</td><td>Маша Surfersha</td><td>140</td></tr>
+            <tr><td>3</td><td>Александр Арутюнян</td><td>Саша Волк</td><td>133</td></tr>
+            <tr><td>4</td><td>Мария Шарапова</td><td>Маша Шар</td><td>120</td></tr>
+            <tr><td>5</td><td>Новак Джокерович</td><td>Джокер</td><td>115</td></tr>
+            <tr><td>6</td><td>Анна Теннисова</td><td>Анна Smash</td><td>112</td></tr>
+            <tr><td>7</td><td>Илья Макаров</td><td>Макс Serve</td><td>108</td></tr>
+            <tr><td>8</td><td>Юлия Орлова</td><td>Юля Slice</td><td>105</td></tr>
+            <tr><td>9</td><td>Дмитрий Кузьмин</td><td>Кузя Drop</td><td>102</td></tr>
+            <tr><td>10</td><td>Светлана Иванова</td><td>Света Rally</td><td>100</td></tr>
           </table>
         </div>
       </div>
@@ -234,9 +199,7 @@
     </div>
   </footer>
 
-  <!-- libs -->
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-
   <script>
     // ---------- SHARE ----------
     const openSheetBtn = document.getElementById('btn-open-share');
@@ -249,12 +212,8 @@
     const pageUrl = location.href;
     const tgText = 'болей за меня онлайн';
 
-    openSheetBtn.addEventListener('click', () => {
-      sheetBackdrop.style.display = 'flex';
-    });
-    sheetBackdrop.addEventListener('click', (e) => {
-      if (e.target === sheetBackdrop) sheetBackdrop.style.display = 'none';
-    });
+    openSheetBtn.addEventListener('click', () => sheetBackdrop.style.display = 'flex');
+    sheetBackdrop.addEventListener('click', (e) => { if (e.target === sheetBackdrop) sheetBackdrop.style.display = 'none'; });
 
     function tournamentCanvasBlob(){
       const el = document.getElementById('tournament');
@@ -265,11 +224,8 @@
     actNative.addEventListener('click', async () => {
       sheetBackdrop.style.display = 'none';
       if (navigator.share){
-        try{
-          await navigator.share({title: document.title, text: tgText, url: pageUrl});
-        }catch{}
+        try{ await navigator.share({title: document.title, text: tgText, url: pageUrl}); }catch{}
       }else{
-        // запасной вариант: Telegram share URL
         const url = `https://t.me/share/url?text=${encodeURIComponent(tgText)}&url=${encodeURIComponent(pageUrl)}`;
         window.open(url, '_blank');
       }
@@ -283,11 +239,10 @@
         if (navigator.canShare && navigator.canShare({files:[file]})) {
           await navigator.share({files:[file], title:'Media Tennis', text: tgText});
         } else {
-          // если нельзя файлом — упадём на ссылку
           const url = `https://t.me/share/url?text=${encodeURIComponent(tgText)}&url=${encodeURIComponent(pageUrl)}`;
           window.open(url, '_blank');
         }
-      }catch(e){}
+      }catch{}
     });
 
     actTgFileSave.addEventListener('click', async () => {
@@ -295,43 +250,38 @@
       try{
         const blob = await tournamentCanvasBlob();
         const file = new File([blob], 'MediaTennis_Tournament.png', {type:'image/png'});
-        // Шарим как файл…
         if (navigator.canShare && navigator.canShare({files:[file]})) {
           await navigator.share({files:[file], title:'Media Tennis', text: tgText});
         } else {
           const url = `https://t.me/share/url?text=${encodeURIComponent(tgText)}&url=${encodeURIComponent(pageUrl)}`;
           window.open(url, '_blank');
         }
-        // …и пытаемся сохранить копию (на iOS Safari может быть заблокировано)
+        // сохранить копию
         const dlUrl = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = dlUrl; a.download = 'MediaTennis_Tournament.png'; a.click();
+        const a = document.createElement('a'); a.href = dlUrl; a.download = 'MediaTennis_Tournament.png'; a.click();
         URL.revokeObjectURL(dlUrl);
-      }catch(e){}
+      }catch{}
     });
 
     actDownload.addEventListener('click', async () => {
       sheetBackdrop.style.display = 'none';
       const blob = await tournamentCanvasBlob();
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url; a.download = 'MediaTennis_Tournament.png'; a.click();
+      const a = document.createElement('a'); a.href = url; a.download = 'MediaTennis_Tournament.png'; a.click();
       URL.revokeObjectURL(url);
     });
 
     // ---------- PHOTOS GRID ----------
-    // Репозиторий и папка с фото
+    // Путь к папке с фото в репозитории: /photos (исправил)
     const GH_OWNER = 'notyourw13';
     const GH_REPO  = 'media-tennis';
-    // судя по структуре у тебя папка внутри корня: media-tennis/photos/
-    const GH_DIR   = 'media-tennis/photos';
+    const GH_DIR   = 'photos'; // БЫЛО 'media-tennis/photos' — из‑за этого не грузилось
 
     async function loadPhotos(){
       const api = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_DIR}`;
       try{
         const res = await fetch(api, {headers:{'Accept':'application/vnd.github+json'}});
         const items = await res.json();
-        // фильтруем по картинкам
         const files = (Array.isArray(items) ? items : []).filter(x=>{
           return x.type==='file' && /\.(jpe?g|png|webp)$/i.test(x.name);
         }).map(x => x.name);
@@ -347,18 +297,13 @@
         grid.innerHTML = '';
         count.textContent = files.length ? `${files.length} фото` : 'фото пока нет';
 
-        // строим карточки
         files.forEach(name=>{
           const raw = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_DIR}/${encodeURIComponent(name)}`;
           const a = document.createElement('a');
           a.href = raw; a.target = '_blank'; a.rel='noopener';
           const img = document.createElement('img');
-          img.loading = 'lazy';
-          img.alt = 'Фото с турнира';
-          img.src = raw;
-          a.appendChild(img);
-          a.className='ph';
-          grid.appendChild(a);
+          img.loading = 'lazy'; img.alt = 'Фото с турнира'; img.src = raw;
+          a.appendChild(img); grid.appendChild(a);
         });
       }catch(e){
         document.getElementById('ph-count').textContent = 'ошибка загрузки';
