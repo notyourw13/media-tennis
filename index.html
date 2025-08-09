@@ -4,11 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ</title>
+
+  <!-- превью для шаринга в TG/соцсетях -->
+  <meta property="og:title" content="Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ">
+  <meta property="og:description" content="Турниры. Медийность. Комьюнити.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://notyourw13.github.io/media-tennis/">
+  <!-- положи картинку превью 1200×630, например /img/preview.jpg -->
+  <meta property="og:image" content="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/preview.jpg">
+
   <style>
     :root{
       --bg:#111; --text:#f4f4f4; --accent:#bada55; --sec:#1c1c1c; --border:#2a2a2a;
-      /* если положишь белую банку в /img/, поменяй ссылку ниже */
-      --aziano-url:url("https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/Aziano.png");
+      /* иконка напитка (нижняя строка — локальный путь, если зальёшь на GitHub Pages) */
+      --aziano-url:url("https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/aziano.png");
+      /* fallback: var(--aziano-local) переопределится, если будешь открывать локально */
+      --aziano-local:url("./img/aziano.png");
     }
     *{margin:0;padding:0;box-sizing:border-box}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
@@ -19,8 +30,10 @@
     section{padding:30px 20px}
     .center-wrap{max-width:1000px;margin:0 auto}
 
-    .card{background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:20px;margin:0 auto 28px;width:fit-content;max-width:100%}
-    h2{font-size:1.6em;margin-bottom:.5em;color:var(--accent);white-space:pre-line}
+    .card{background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:20px;margin:0 auto 28px;max-width:1000px}
+    h2{font-size:1.6em;margin-bottom:.5em;color:var(--accent);text-align:center;white-space:pre-line}
+
+    .divider{height:1px;background:var(--border);margin:18px 0 10px}
 
     .table-wrap{overflow-x:auto;padding-right:12px}
     table{border-collapse:collapse;color:#ddd;min-width:640px;margin:0 auto}
@@ -29,9 +42,18 @@
 
     .drink-col{min-width:78px;width:78px}
     th.drink-col{position:relative;padding:0;background:#222}
-    th.drink-col::before{content:"";display:block;width:100%;height:60px;background-image:var(--aziano-url);background-size:contain;background-repeat:no-repeat;background-position:center}
+    th.drink-col::before{
+      content:"";display:block;width:100%;height:60px;
+      background-image:var(--aziano-url), var(--aziano-local);
+      background-size:contain;background-repeat:no-repeat;background-position:center
+    }
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     td.drink-col{padding-right:8px}
+
+    .sharebar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:16px 0 4px}
+    .btn{background:#2a2a2a;border:1px solid #3a3a3a;border-radius:10px;padding:10px 14px;color:#f4f4f4;text-decoration:none;cursor:pointer}
+    .btn:hover{border-color:#555}
+    .hint{text-align:center;color:#888;font-size:.95em;margin-top:6px}
 
     footer{background:#1a1a1a;padding:30px 20px;margin-top:32px}
     .footer-inner{max-width:1000px;margin:0 auto;text-align:center}
@@ -53,10 +75,11 @@
   <section>
     <div class="center-wrap">
 
-      <!-- Текущий турнир -->
-      <div class="card">
-        <h2>Турнир Санта‑Фе 09.08</h2>
-        <div class="table-wrap">
+      <!-- ОДИН общий блок -->
+      <div class="card" id="main-card">
+        <h2 id="title-main">Турнир Санта‑Фе 09.08</h2>
+
+        <div class="table-wrap" id="tournament">
           <table>
             <tr>
               <th>№</th>
@@ -78,13 +101,11 @@
             <tr><td>12</td><td>Сунцова 3.0 + Панфилов 4.0</td><td>- / -</td><td class="drink-col">0</td></tr>
           </table>
         </div>
-      </div>
 
-      <!-- Рейтинг РСТ -->
-      <div class="card">
-        <h2>Рейтинг РСТ
-Российский Санта‑Фе Тур</h2>
-        <div class="table-wrap">
+        <div class="divider"></div>
+
+        <h2>Рейтинг РСТ<br>Российский Санта‑Фе Тур</h2>
+        <div class="table-wrap" id="rating">
           <table>
             <tr>
               <th>№</th>
@@ -106,6 +127,15 @@
             <tr><td>10</td><td>Светлана Иванова</td><td>Света Rally</td><td>100</td><td>2 / 0</td><td class="drink-col">4</td></tr>
           </table>
         </div>
+
+        <div class="sharebar">
+          <button class="btn" id="btn-share">Поделиться…</button>
+          <a class="btn" id="btn-tg" href="#" rel="noopener">Отправить в Telegram</a>
+          <button class="btn" id="btn-copy">Скопировать ссылку</button>
+          <button class="btn" id="btn-download">Скачать картинку турнира</button>
+          <button class="btn" id="btn-share-image" hidden>Поделиться картинкой</button>
+        </div>
+        <div class="hint">В Instagram Stories напрямую из браузера делиться нельзя — скачай картинку и добавь в сторис вручную.</div>
       </div>
 
     </div>
@@ -124,5 +154,72 @@
       <p style="margin-top:20px">&copy; 2025 Media Tennis</p>
     </div>
   </footer>
+
+  <!-- html2canvas для сохранения таблицы как картинки -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    // Кнопка «Поделиться…» (нативный диалог на телефонах)
+    document.getElementById('btn-share').addEventListener('click', async () => {
+      const url = location.href;
+      const title = document.getElementById('title-main').innerText + ' — Media Tennis';
+      const text = 'Сетка и рейтинг:';
+      if (navigator.share){
+        try{ await navigator.share({title, text, url}); }catch{}
+      }else{
+        alert('Поделиться можно через копирование ссылки ниже 👇');
+      }
+    });
+
+    // Кнопка «Отправить в Telegram» (откроет окно выбора чата)
+    const tgBtn = document.getElementById('btn-tg');
+    const shareUrl = encodeURIComponent(location.href);
+    const shareText = encodeURIComponent('Media Tennis — турнир и рейтинг');
+    tgBtn.href = `https://t.me/share/url?url=${shareUrl}&text=${shareText}`;
+
+    // Скопировать ссылку
+    document.getElementById('btn-copy').addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(location.href);
+        alert('Ссылка скопирована!');
+      }catch{
+        prompt('Скопируй ссылку:', location.href);
+      }
+    });
+
+    // Сохранение таблицы турнира как картинки для сторис
+    async function makeTournamentImage(){
+      const el = document.getElementById('tournament');
+      const canvas = await html2canvas(el, {backgroundColor:'#111', scale:2});
+      return new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+    }
+
+    document.getElementById('btn-download').addEventListener('click', async () => {
+      const blob = await makeTournamentImage();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'MediaTennis_Tournament.png';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Если поддерживается Web Share Level 2 — даём шаринг сразу картинкой (в TG/WA работает)
+    (async () => {
+      if (navigator.canShare && window.File){
+        const blob = new Blob([''], {type:'text/plain'}); // проверка наличия File
+        document.getElementById('btn-share-image').hidden = false;
+        document.getElementById('btn-share-image').addEventListener('click', async () => {
+          const imgBlob = await makeTournamentImage();
+          const file = new File([imgBlob], 'MediaTennis_Tournament.png', {type:'image/png'});
+          if (navigator.canShare({files:[file]})){
+            try{
+              await navigator.share({files:[file], title:'Media Tennis', text:'Турнир Санта‑Фе'});
+            }catch{}
+          }else{
+            alert('Ваш браузер не поддерживает прямой шаринг файлов.');
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
