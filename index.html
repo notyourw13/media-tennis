@@ -86,4 +86,227 @@
     .lb-close{top:12px;right:12px;transform:none}
     .lb-prev{left:-56px}
     .lb-next{right:-56px}
-    @media (max
+    @media (max-width:480px){ .lb-prev{left:8px} .lb-next{right:8px} }
+
+    footer{background:#1a1a1a;padding:28px 16px;margin-top:28px}
+    .footer-inner{max-width:1000px;margin:0 auto;text-align:center}
+    .links-block a{display:inline-block;margin:6px 12px;text-decoration:none;color:var(--accent);font-weight:bold}
+
+    /* Mobile tweaks */
+    @media (max-width:420px){
+      th,td{padding:7px}
+      .pair{gap:3px}
+      .player{font-size:15px}
+      th.col-az::before{height:86px}
+      .drink-cell{height:96px}
+    }
+    @media (max-width:360px){
+      th,td{padding:6px;font-size:15px;border-width:.5px}
+      .col-pair{width:60%}.col-wg{width:24%}.col-az{width:16%}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Media Tennis 🎾</h1>
+    <p>Турниры. Медийность. Комьюнити.</p>
+  </header>
+
+  <section>
+    <div class="center">
+
+      <div class="card" id="main-card">
+        <h2 id="title-main">Турнир Санта‑Фе 09.08</h2>
+
+        <!-- Турнирная таблица (без колонки №) -->
+        <div class="table-wrap" id="tournament">
+          <table id="table-tournament">
+            <tr>
+              <th class="col-pair">Пара</th>
+              <th class="col-wg">W/G</th>
+              <th class="col-az"><!-- пусто: только банка --></th>
+            </tr>
+
+            <!-- 1..12 — все пары -->
+            <tr><td class="col-pair"><div class="pair"><span class="player">Донсков <small>4.5</small></span><span class="player">Полунина <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Харламов <small>4.0</small></span><span class="player">Ерошкина <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Ерошева <small>3.5</small></span><span class="player">Данг <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Тонко <small>3.0</small></span><span class="player">Долгополова <small>3.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Видгоф А <small>4.0</small></span><span class="player">Видгоф Е <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Михеева <small>3.0</small></span><span class="player">Старков <small>3.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Ким <small>3.5</small></span><span class="player">Милосердов <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Спирина <small>2.0</small></span><span class="player">Рабаев <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Бенин <small>3.0</small></span><span class="player">Арушанян <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Шабаш <small>4.5</small></span><span class="player">Безмаева <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Ким Д <small>2.5</small></span><span class="player">Ким И <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+            <tr><td class="col-pair"><div class="pair"><span class="player">Сунцова <small>3.0</small></span><span class="player">Панфилов <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
+          </table>
+        </div>
+
+        <!-- ЕДИНАЯ кнопка -->
+        <div class="sharebar">
+          <button class="btn" id="btn-share">Поделиться</button>
+        </div>
+
+        <!-- Фото-блок -->
+        <div class="photos" id="photos">
+          <div class="ph-head">
+            <h3>Фото с турнира</h3>
+            <div class="sub" id="ph-count">загружаем…</div>
+          </div>
+          <div class="grid" id="ph-grid"></div>
+        </div>
+
+        <!-- Лайтбокс (расположен ДО скриптов, чтобы элементы точно существовали) -->
+        <div class="lb-back" id="lb">
+          <div class="lb-inner">
+            <img class="lb-img" id="lbImg" alt="">
+            <button class="lb-close" id="lbClose">✕</button>
+            <button class="lb-prev"  id="lbPrev">‹</button>
+            <button class="lb-next"  id="lbNext">›</button>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Рейтинг: упрощённые столбцы -->
+        <h2>Рейтинг РСТ (формируется… ⚙️)<br>Российский Санта‑Фе Тур</h2>
+        <div class="table-wrap">
+          <table>
+            <tr>
+              <th style="width:12%">№</th>
+              <th style="width:44%">Игрок</th>
+              <th style="width:24%">a.k.a.</th>
+              <th style="width:20%">Очки</th>
+            </tr>
+            <tr><td>1</td><td>Александр Серафимский</td><td>Саша Surfer</td><td>150</td></tr>
+            <tr><td>2</td><td>Маша Серафимская</td><td>Маша Surfersha</td><td>140</td></tr>
+            <tr><td>3</td><td>Александр Арутюнян</td><td>Саша Волк</td><td>133</td></tr>
+            <tr><td>4</td><td>Мария Шарапова</td><td>Маша Шар</td><td>120</td></tr>
+            <tr><td>5</td><td>Новак Джокерович</td><td>Джокер</td><td>115</td></tr>
+            <tr><td>6</td><td>Анна Теннисова</td><td>Анна Smash</td><td>112</td></tr>
+            <tr><td>7</td><td>Илья Макаров</td><td>Макс Serve</td><td>108</td></tr>
+            <tr><td>8</td><td>Юлия Орлова</td><td>Юля Slice</td><td>105</td></tr>
+            <tr><td>9</td><td>Дмитрий Кузьмин</td><td>Кузя Drop</td><td>102</td></tr>
+            <tr><td>10</td><td>Светлана Иванова</td><td>Света Rally</td><td>100</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>Сотрудничество:</p>
+      <div class="links-block">
+        <a href="https://t.me/tennis_msk1">Блогеры и UGC</a>
+        <a href="https://t.me/tennis_msk1">Тренеры</a>
+        <a href="https://t.me/tennis_msk1">Бренды</a>
+        <a href="https://t.me/tennis_msk1">Владельцы кортов</a>
+        <a href="https://t.me/tennis_msk1">etc</a>
+      </div>
+      <p style="margin-top:18px">&copy; 2025 Media Tennis</p>
+    </div>
+  </footer>
+
+  <script>
+    // Всё запускаем после загрузки DOM, чтобы элементы точно были на месте
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // --- SHARE: одна кнопка, сразу системный диалог ---
+      document.getElementById('btn-share').addEventListener('click', async () => {
+        const title = document.title;
+        const text  = 'болей за меня онлайн';
+        const url   = location.href;
+        if (navigator.share) {
+          try { await navigator.share({ title, text, url }); } catch {}
+        } else {
+          // фолбэк: Telegram share URL
+          const tg = `https://t.me/share/url?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+          window.open(tg, '_blank');
+        }
+      });
+
+      // --- PHOTOS GRID + LIGHTBOX ---
+      const GH_OWNER='notyourw13', GH_REPO='media-tennis', GH_DIR='photos';
+      const grid   = document.getElementById('ph-grid');
+      const count  = document.getElementById('ph-count');
+      const lb     = document.getElementById('lb');
+      const lbImg  = document.getElementById('lbImg');
+      const lbClose= document.getElementById('lbClose');
+      const lbPrev = document.getElementById('lbPrev');
+      const lbNext = document.getElementById('lbNext');
+
+      let photos=[], idx=0;
+
+      async function loadPhotos(){
+        const api = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_DIR}`;
+        try{
+          const res = await fetch(api, {headers:{'Accept':'application/vnd.github+json'}});
+          const items = await res.json();
+          photos = (Array.isArray(items)?items:[])
+            .filter(x=>x.type==='file' && /\.(jpe?g|png|webp)$/i.test(x.name))
+            .map(x=>`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_DIR}/${encodeURIComponent(x.name)}`);
+
+          // перемешать
+          for(let i=photos.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[photos[i],photos[j]]=[photos[j],photos[i]];}
+
+          grid.innerHTML='';
+          count.textContent = photos.length ? `${photos.length} фото` : 'фото пока нет';
+
+          photos.forEach((src,i)=>{
+            const a=document.createElement('a'); a.href='#';
+            a.addEventListener('click', (e)=>{ e.preventDefault(); openLb(i); });
+            const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt='Фото с турнира';
+            a.appendChild(img); grid.appendChild(a);
+          });
+        }catch{ count.textContent='ошибка загрузки'; }
+      }
+
+      function openLb(i){ idx=i; lbImg.src=photos[idx]; lb.style.display='flex'; }
+      function closeLb(){ lb.style.display='none'; lbImg.src=''; }
+      function prev(){ if(!photos.length)return; idx=(idx-1+photos.length)%photos.length; lbImg.src=photos[idx]; }
+      function next(){ if(!photos.length)return; idx=(idx+1)%photos.length; lbImg.src=photos[idx]; }
+
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
+      lbPrev.addEventListener('click', prev);
+      lbNext.addEventListener('click', next);
+
+      // свайпы для мобилок
+      let sx=0, sy=0;
+      lb.addEventListener('touchstart', e=>{ const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; }, {passive:true});
+      lb.addEventListener('touchend', e=>{
+        const t=e.changedTouches[0]; const dx=t.clientX-sx; const dy=t.clientY-sy;
+        if (Math.abs(dx) > 40 && Math.abs(dy) < 40){ dx<0 ? next() : prev(); }
+      }, {passive:true});
+
+      document.addEventListener('keydown',(e)=>{
+        if(lb.style.display!=='flex') return;
+        if(e.key==='Escape') closeLb();
+        if(e.key==='ArrowLeft') prev();
+        if(e.key==='ArrowRight') next();
+      });
+
+      loadPhotos();
+
+      // --- RANDOMIZE TOURNAMENT W/G + DRINKS ---
+      (function randomizeTournament(){
+        const rows = document.querySelectorAll('#table-tournament tr');
+        // пропускаем заголовок (i=1..end)
+        for (let i = 1; i < rows.length; i++){
+          const cells = rows[i].querySelectorAll('td');
+          if (cells.length < 3) continue;
+          const games = Math.floor(Math.random()*6);         // 0..5
+          const wins  = Math.floor(Math.random()*(games+1)); // 0..games
+          const drinks= Math.floor(Math.random()*6);         // 0..5
+          cells[1].textContent = `${wins} / ${games}`;
+          cells[2].textContent = drinks.toString();
+        }
+      })();
+
+    }); // DOMContentLoaded
+  </script>
+</body>
+</html>
