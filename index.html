@@ -1,312 +1,260 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ</title>
-
-  <!-- превью для шаринга -->
-  <meta property="og:title" content="Media Tennis — Турнир Санта‑Фе и Рейтинг РСТ">
-  <meta property="og:description" content="Турниры. Медийность. Комьюнити. Болей за меня онлайн!">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://notyourw13.github.io/media-tennis/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/preview.jpg">
-
+  <title>Ruslan A. — Strategy & Investment Expert</title>
+  <meta name="description" content="Ruslan A. — Senior Project Development Manager. Strategy & Investment expert with 9+ years across oil, gas & petrochemicals. Leaders of Russia finalist. Public web version for privacy." />
+  <meta name="robots" content="noindex, noarchive" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000'/><text x='50' y='58' font-size='56' text-anchor='middle' fill='%23FFD43B' font-family='Arial, Helvetica, sans-serif'>R</text></svg>">
   <style>
     :root{
-      --bg:#111; --text:#f4f4f4; --accent:#bada55; --sec:#1c1c1c; --border:#2a2a2a; --muted:#9aa0a6;
-      --aziano:url("https://raw.githubusercontent.com/notyourw13/media-tennis/main/img/aziano.png");
+      --bg:#ffffff;
+      --text:#111418;
+      --muted:#6b7280;
+      --accent:#FFD43B;     /* yellow */
+      --sidebar:#111111;     /* near-black */
+      --card:#f8fafc;        /* light card bg */
+      --line:#e5e7eb;        /* light divider */
+      --link:#0ea5e9;        /* link blue */
     }
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    header{background:var(--sec);color:var(--accent);padding:56px 20px 36px;text-align:center}
-    header h1{font-size:2em;margin-bottom:.3em}
-    header p{font-size:1.05em;color:#aaa}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg)}
 
-    section{padding:28px 16px}
-    .center{max-width:1000px;margin:0 auto}
-    .card{background:var(--sec);border:1px solid var(--border);border-radius:12px;padding:18px;margin:0 auto 24px;max-width:1000px}
-    h2{font-size:1.4em;margin:4px 0 10px;color:var(--accent);text-align:center}
-    .divider{height:1px;background:var(--border);margin:18px 0}
+    /* ===== LAYOUT (mobile-first) ===== */
+    .wrap{display:grid; grid-template-columns:1fr; min-height:100dvh}
+    main{order:1; padding:22px 16px 60px; max-width:1000px; margin:0 auto}
+    aside{order:2; background:var(--sidebar); color:#e5e7eb; padding:22px 16px; border-top:6px solid var(--accent)}
 
-    /* таблицы */
-    .table-wrap{overflow-x:auto}
-    table{border-collapse:collapse;color:#ddd;min-width:320px;table-layout:fixed;width:100%}
-    th,td{border:1px solid #424242;padding:9px 8px;text-align:center;vertical-align:middle}
-    th{background:#222;color:var(--accent)}
-    .col-pair{width:58%}
-    .col-wg{width:24%}
-    .col-az{width:18%}
-
-    /* Пара: игроки столбиком */
-    .pair{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
-    .player{display:block;line-height:1.25}
-    .player small{color:var(--muted);margin-left:6px}
-    td.col-pair{text-align:left}
-
-    /* Азиано: картинка + отступы */
-    th.col-az{position:relative;padding:10px 0;background:#222}
-    th.col-az::before{
-      content:"";display:block;height:80px;margin:6px 0;
-      background-image:var(--aziano);background-size:contain;background-position:center;background-repeat:no-repeat;
-    }
-    .drink-cell{height:92px;padding:10px 0}
-
-    /* SHARE */
-    .sharebar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:10px 0 12px}
-    .btn{background:#2a2a2a;border:1px solid #3a3a3a;border-radius:10px;padding:10px 16px;color:#f4f4f4;text-decoration:none;cursor:pointer}
-    .btn:hover{border-color:#555}
-
-    /* ФОТО — центрированная сетка фикс‑тайлов */
-    .photos{margin:12px auto 6px;max-width:1000px}
-    .ph-head{display:flex;justify-content:center;gap:10px;align-items:center;margin:4px 2px 10px}
-    .ph-head h3{font-size:1.05em;color:#ddd}
-    .ph-head .sub{color:#888;font-size:.95em}
-    .grid{
-      display:grid;gap:10px;justify-content:center;
-      grid-template-columns:repeat(auto-fit, minmax(110px,110px));
-    }
-    .grid a{display:block;position:relative;width:110px;height:110px;overflow:hidden;border-radius:8px;border:1px solid #2a2a2a;background:#0f0f0f}
-    .grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s ease}
-    .grid a:hover img{transform:scale(1.03)}
-    @media (max-width:420px){
-      .grid{grid-template-columns:repeat(auto-fit, minmax(90px,90px));gap:8px}
-      .grid a{width:90px;height:90px}
+    /* desktop: sidebar слева */
+    @media (min-width:980px){
+      .wrap{grid-template-columns:320px 1fr}
+      aside{order:1; position:sticky; top:0; height:100dvh; overflow:auto; border-top:none}
+      main{order:2; padding:30px 28px 64px}
     }
 
-    /* ЛАЙТБОКС */
-    .lb-back{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:100}
-    .lb-inner{position:relative;max-width:92vw;max-height:88vh}
-    .lb-img{max-width:92vw;max-height:88vh;display:block;border-radius:10px}
-    .lb-close,.lb-prev,.lb-next{
-      position:absolute;top:50%;transform:translateY(-50%);
-      background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
-      color:#fff;padding:10px 12px;border-radius:10px;cursor:pointer;user-select:none
+    /* ===== HEADER ===== */
+    .header{
+      display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+      border-bottom:2px solid var(--line); padding-bottom:14px
     }
-    .lb-close{top:12px;right:12px;transform:none}
-    .lb-prev{left:-56px}
-    .lb-next{right:-56px}
-    @media (max-width:480px){ .lb-prev{left:8px} .lb-next{right:8px} }
+    .avatar{
+      width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid #e2e8f0
+    }
+    .name{font-size:28px; font-weight:800; letter-spacing:.04em; margin:0}
+    .underline{background:var(--accent); padding:2px 8px; border-radius:6px}
+    .role{margin:2px 0 0; font-weight:600; color:#374151; font-size:14px}
+    .notice{margin:8px 0 0; color:#6b7280; font-size:13px}
 
-    footer{background:#1a1a1a;padding:28px 16px;margin-top:28px}
-    .footer-inner{max-width:1000px;margin:0 auto;text-align:center}
-    .links-block a{display:inline-block;margin:6px 12px;text-decoration:none;color:var(--accent);font-weight:bold}
+    /* ===== TOP NAV ===== */
+    .topnav{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0}
+    .chip{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:#374151; text-decoration:none; font-weight:700; font-size:13px}
+    .chip:hover{border-color:#cbd5e1}
 
-    /* Mobile tweaks */
-    @media (max-width:420px){
-      th,td{padding:7px}
-      .pair{gap:3px}
-      .player{font-size:15px}
-      th.col-az::before{height:86px}
-      .drink-cell{height:96px}
-    }
-    @media (max-width:360px){
-      th,td{padding:6px;font-size:15px;border-width:.5px}
-      .col-pair{width:60%}.col-wg{width:24%}.col-az{width:16%}
-    }
+    /* ===== SECTIONS ===== */
+    section{padding:20px 0; border-bottom:2px solid var(--line)}
+    section:last-of-type{border-bottom:none}
+    h2{font-size:18px; letter-spacing:.12em; margin:0 0 12px; color:#111827}
+    h2 .tag{background:var(--accent); border-radius:6px; padding:4px 8px}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 14px; margin:10px 0}
+    .org{display:inline-block; font-weight:800; color:#0f172a; background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 10px; margin-bottom:6px}
+    .meta{display:inline-block; color:#475569; font-weight:700; padding:4px 8px; border-radius:999px; background:#eef2f7; margin-left:6px}
+    .bullets{margin:8px 0 0; padding-left:1.1rem}
+    .bullets li{margin:.28rem 0}
+    .link{color:var(--link); text-decoration:none}
+
+    /* ===== SIDEBAR (CV black column) ===== */
+    .photo{width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:14px; border:3px solid #1f2937; box-shadow:0 6px 28px rgba(0,0,0,.35)}
+    .label{letter-spacing:.35em; font-weight:700; color:#9ca3af; font-size:12px; margin:16px 0 8px}
+    .block{margin:12px 0 18px}
+    .about{font-size:14px; color:#d1d5db}
+    .list{list-style:none; padding:0; margin:8px 0 0}
+    .list li{margin:.4rem 0; display:flex; gap:.5rem; align-items:flex-start}
+    .icon{width:18px; height:18px; flex:0 0 18px; opacity:.95}
+    .contact a{color:#e5e7eb; text-decoration:none}
+    .contact a:hover{opacity:.85}
+
+    /* collapsible photo (details/summary) */
+    details.photo-toggle{background:#0f172a; border:1px solid #1f2937; border-radius:12px; padding:10px 12px}
+    details.photo-toggle summary{cursor:pointer; list-style:none; outline:none; display:flex; align-items:center; justify-content:space-between; gap:10px}
+    details.photo-toggle summary::-webkit-details-marker{display:none}
+    .caret{font-weight:800; opacity:.9}
+    details[open] .caret{transform:rotate(180deg)}
+    .ph-wrap{margin-top:10px}
+
+    /* small tweaks */
+    @media (max-width:600px){ .name{font-size:24px} .role{font-size:13px} }
+    @media print{ aside{position:static; height:auto} .link{color:#111} .chip{border-color:#111} }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Media Tennis 🎾</h1>
-    <p>Турниры. Медийность. Комьюнити.</p>
-  </header>
+  <div class="wrap">
 
-  <section>
-    <div class="center">
+    <!-- ===== MAIN (white) ===== -->
+    <main id="top">
 
-      <div class="card" id="main-card">
-        <h2 id="title-main">Турнир Санта‑Фе 09.08</h2>
-
-        <!-- Турнирная таблица (без колонки №) -->
-        <div class="table-wrap" id="tournament">
-          <table id="table-tournament">
-            <tr>
-              <th class="col-pair">Пара</th>
-              <th class="col-wg">W/G</th>
-              <th class="col-az"><!-- пусто: только банка --></th>
-            </tr>
-
-            <!-- 1..12 — все пары -->
-            <tr><td class="col-pair"><div class="pair"><span class="player">Донсков <small>4.5</small></span><span class="player">Полунина <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Харламов <small>4.0</small></span><span class="player">Ерошкина <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Ерошева <small>3.5</small></span><span class="player">Данг <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Тонко <small>3.0</small></span><span class="player">Долгополова <small>3.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Видгоф А <small>4.0</small></span><span class="player">Видгоф Е <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Михеева <small>3.0</small></span><span class="player">Старков <small>3.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Ким <small>3.5</small></span><span class="player">Милосердов <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Спирина <small>2.0</small></span><span class="player">Рабаев <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Бенин <small>3.0</small></span><span class="player">Арушанян <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Шабаш <small>4.5</small></span><span class="player">Безмаева <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Ким Д <small>2.5</small></span><span class="player">Ким И <small>3.5</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-            <tr><td class="col-pair"><div class="pair"><span class="player">Сунцова <small>3.0</small></span><span class="player">Панфилов <small>4.0</small></span></div></td><td>— / —</td><td class="drink-cell">0</td></tr>
-          </table>
-        </div>
-
-        <!-- ЕДИНАЯ кнопка -->
-        <div class="sharebar">
-          <button class="btn" id="btn-share">Поделиться</button>
-        </div>
-
-        <!-- Фото-блок -->
-        <div class="photos" id="photos">
-          <div class="ph-head">
-            <h3>Фото с турнира</h3>
-            <div class="sub" id="ph-count">загружаем…</div>
-          </div>
-          <div class="grid" id="ph-grid"></div>
-        </div>
-
-        <!-- Лайтбокс (расположен ДО скриптов, чтобы элементы точно существовали) -->
-        <div class="lb-back" id="lb">
-          <div class="lb-inner">
-            <img class="lb-img" id="lbImg" alt="">
-            <button class="lb-close" id="lbClose">✕</button>
-            <button class="lb-prev"  id="lbPrev">‹</button>
-            <button class="lb-next"  id="lbNext">›</button>
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <!-- Рейтинг: упрощённые столбцы -->
-        <h2>Рейтинг РСТ (формируется… ⚙️)<br>Российский Санта‑Фе Тур</h2>
-        <div class="table-wrap">
-          <table>
-            <tr>
-              <th style="width:12%">№</th>
-              <th style="width:44%">Игрок</th>
-              <th style="width:24%">a.k.a.</th>
-              <th style="width:20%">Очки</th>
-            </tr>
-            <tr><td>1</td><td>Александр Серафимский</td><td>Саша Surfer</td><td>150</td></tr>
-            <tr><td>2</td><td>Маша Серафимская</td><td>Маша Surfersha</td><td>140</td></tr>
-            <tr><td>3</td><td>Александр Арутюнян</td><td>Саша Волк</td><td>133</td></tr>
-            <tr><td>4</td><td>Мария Шарапова</td><td>Маша Шар</td><td>120</td></tr>
-            <tr><td>5</td><td>Новак Джокерович</td><td>Джокер</td><td>115</td></tr>
-            <tr><td>6</td><td>Анна Теннисова</td><td>Анна Smash</td><td>112</td></tr>
-            <tr><td>7</td><td>Илья Макаров</td><td>Макс Serve</td><td>108</td></tr>
-            <tr><td>8</td><td>Юлия Орлова</td><td>Юля Slice</td><td>105</td></tr>
-            <tr><td>9</td><td>Дмитрий Кузьмин</td><td>Кузя Drop</td><td>102</td></tr>
-            <tr><td>10</td><td>Светлана Иванова</td><td>Света Rally</td><td>100</td></tr>
-          </table>
+      <!-- Header -->
+      <div class="header">
+        <img class="avatar" src="photo.jpg" alt="Ruslan A. avatar">
+        <div>
+          <h1 class="name"><span class="underline">RUSLAN A.</span></h1>
+          <div class="role">Senior Project Development Manager • Strategy & Investment Expert</div>
+          <div class="notice">Public version: showing shortened surname “Ruslan A.” for privacy and search-engine hygiene. Full details available on request.</div>
         </div>
       </div>
 
-    </div>
-  </section>
+      <!-- Top navigation -->
+      <nav class="topnav" aria-label="Section navigation">
+        <a class="chip" href="#experience">Experience</a>
+        <a class="chip" href="#strengths">Strengths</a>
+        <a class="chip" href="#education">Education</a>
+        <a class="chip" href="#more">Additional</a>
+        <a class="chip" href="https://akbulatov.pro" target="_blank" rel="noopener">Full profile →</a>
+      </nav>
 
-  <footer>
-    <div class="footer-inner">
-      <p>Сотрудничество:</p>
-      <div class="links-block">
-        <a href="https://t.me/tennis_msk1">Блогеры и UGC</a>
-        <a href="https://t.me/tennis_msk1">Тренеры</a>
-        <a href="https://t.me/tennis_msk1">Бренды</a>
-        <a href="https://t.me/tennis_msk1">Владельцы кортов</a>
-        <a href="https://t.me/tennis_msk1">etc</a>
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2><span class="tag">PROFESSIONAL EXPERIENCE</span></h2>
+
+        <div class="card">
+          <div>
+            <span class="org">Leading Integrated Oil &amp; Gas Holding</span>
+            <span class="meta">Senior Project Development Manager | 2021 — Present</span>
+          </div>
+          <ul class="bullets">
+            <li>Secured preferential tax regimes and low-interest financing.</li>
+            <li>Established a Special Economic Zone (SEZ) with major tax &amp; investment benefits.</li>
+            <li>Drafted proposals for senior officials, including the President &amp; Prime Minister of Russia.</li>
+            <li>Coordinated cross-functional teams in upstream, refining, and petrochemicals.</li>
+            <li>Built strong working relations with ministries, regional authorities &amp; top executives.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="org">Ministry of Energy of the Russian Federation</span>
+            <span class="meta">Senior Project Coordinator | 2016 — 2021</span>
+          </div>
+          <ul class="bullets">
+            <li>Led strategic initiatives on regulation and investment in the oil &amp; gas sector.</li>
+            <li>Prepared reports &amp; presentations for the President, Prime Minister, and Minister of Energy.</li>
+            <li>Developed legislative proposals; coordinated federal approvals.</li>
+            <li>Built financial models and assessed investment impacts.</li>
+            <li>Maintained trusted communications with government agencies &amp; energy companies.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- STRENGTHS -->
+      <section id="strengths">
+        <h2><span class="tag">PROFESSIONAL STRENGTHS</span></h2>
+        <div class="card">
+          <ul class="bullets">
+            <li>Strategic &amp; critical thinking under pressure.</li>
+            <li>High-level communication with ministries &amp; C-suites.</li>
+            <li>Rapid problem-solving in uncertain environments.</li>
+            <li>Skilled in legal, financial &amp; regulatory analysis.</li>
+            <li>Building networks across government and energy leaders.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <h2><span class="tag">EDUCATION &amp; CERTIFICATIONS</span></h2>
+        <div class="card">
+          <ul class="bullets">
+            <li>MSc, Land &amp; Resource Law — Kutafin Moscow State Law University (2018).</li>
+            <li>BSc, Chemical Technology — Gubkin University (2016).</li>
+            <li>Executive Training (2023–2024): Digital Currency &amp; CBDC.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ADDITIONAL -->
+      <section id="more">
+        <h2><span class="tag">ADDITIONAL INFORMATION</span></h2>
+        <div class="card">
+          <p><em>Finalist of “Leaders of Russia” — Russia’s premier nationwide management competition, confirming top leadership potential and providing access to an exclusive government-business executive network.</em></p>
+        </div>
+      </section>
+
+      <footer style="margin-top:20px; color:var(--muted); font-size:14px">
+        © <span id="y"></span> Ruslan A. • This page mirrors the one-page CV. For updates and full portfolio visit
+        <a class="link" href="https://akbulatov.pro" target="_blank" rel="noopener">akbulatov.pro</a>.
+      </footer>
+    </main>
+
+    <!-- ===== SIDEBAR (black CV column) ===== -->
+    <aside>
+      <!-- Collapsible photo -->
+      <div class="block">
+        <details class="photo-toggle">
+          <summary>
+            <span>Show photo</span>
+            <span class="caret">▾</span>
+          </summary>
+          <div class="ph-wrap">
+            <img class="photo" src="photo.jpg" alt="Ruslan A. portrait" />
+          </div>
+        </details>
       </div>
-      <p style="margin-top:18px">&copy; 2025 Media Tennis</p>
-    </div>
-  </footer>
+
+      <div class="block">
+        <div class="label">CONTACTS</div>
+        <ul class="list contact">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="#60a5fa" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm.75 17.9v-2.4a.75.75 0 10-1.5 0v2.4A8.5 8.5 0 013.6 12h2.4a.75.75 0 100-1.5H3.6A8.5 8.5 0 0111.25 4.1v2.4a.75.75 0 101.5 0V4.1A8.5 8.5 0 0120.4 10.5h-2.4a.75.75 0 100 1.5h2.4a8.5 8.5 0 01-7.65 7.9z"/></svg>
+            <a href="https://akbulatov.pro" target="_blank" rel="noopener">akbulatov.pro</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#22d3ee"><path d="M22 3L2 12l6.5 2 2.5 7 3.5-4 5 4 2.5-21z"/></svg>
+            <a href="https://t.me/Akbulatov_R" target="_blank" rel="noopener">@Akbulatov_R</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="#34d399" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            Dubai (relocation planned from Moscow)
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="label">ABOUT ME</div>
+        <div class="about">
+          Strategic project manager with <strong>9+ years</strong> in oil, gas & petrochemicals. Known for rapid problem-solving under pressure and building trusted relationships with senior officials & C-suite executives.
+          <em>Finalist of “Leaders of Russia” — Russia’s top nationwide management competition, confirming executive potential and granting access to an elite public-private leadership network.</em>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="label">LANGUAGES</div>
+        <ul class="list">
+          <li>• English — B2 (Upper-Intermediate)</li>
+          <li>• Russian — Native (Expert in high-level official & executive communications; drafting materials for President, Prime Minister, and Ministers)</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <a class="chip" href="#top">↑ Back to top</a>
+      </div>
+    </aside>
+  </div>
 
   <script>
-    // Всё запускаем после загрузки DOM, чтобы элементы точно были на месте
-    document.addEventListener('DOMContentLoaded', () => {
+    // год в футере
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-      // --- SHARE: одна кнопка, сразу системный диалог ---
-      document.getElementById('btn-share').addEventListener('click', async () => {
-        const title = document.title;
-        const text  = 'болей за меня онлайн';
-        const url   = location.href;
-        if (navigator.share) {
-          try { await navigator.share({ title, text, url }); } catch {}
-        } else {
-          // фолбэк: Telegram share URL
-          const tg = `https://t.me/share/url?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-          window.open(tg, '_blank');
+    // автопрокрутка к верху после раскрытия фото на мобильных (чтобы фото было в зоне видимости)
+    const det = document.querySelector('details.photo-toggle');
+    if(det){
+      det.addEventListener('toggle', ()=>{
+        if(det.open && window.innerWidth < 980){
+          det.scrollIntoView({behavior:'smooth', block:'start'});
         }
       });
-
-      // --- PHOTOS GRID + LIGHTBOX ---
-      const GH_OWNER='notyourw13', GH_REPO='media-tennis', GH_DIR='photos';
-      const grid   = document.getElementById('ph-grid');
-      const count  = document.getElementById('ph-count');
-      const lb     = document.getElementById('lb');
-      const lbImg  = document.getElementById('lbImg');
-      const lbClose= document.getElementById('lbClose');
-      const lbPrev = document.getElementById('lbPrev');
-      const lbNext = document.getElementById('lbNext');
-
-      let photos=[], idx=0;
-
-      async function loadPhotos(){
-        const api = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_DIR}`;
-        try{
-          const res = await fetch(api, {headers:{'Accept':'application/vnd.github+json'}});
-          const items = await res.json();
-          photos = (Array.isArray(items)?items:[])
-            .filter(x=>x.type==='file' && /\.(jpe?g|png|webp)$/i.test(x.name))
-            .map(x=>`https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_DIR}/${encodeURIComponent(x.name)}`);
-
-          // перемешать
-          for(let i=photos.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[photos[i],photos[j]]=[photos[j],photos[i]];}
-
-          grid.innerHTML='';
-          count.textContent = photos.length ? `${photos.length} фото` : 'фото пока нет';
-
-          photos.forEach((src,i)=>{
-            const a=document.createElement('a'); a.href='#';
-            a.addEventListener('click', (e)=>{ e.preventDefault(); openLb(i); });
-            const img=document.createElement('img'); img.loading='lazy'; img.src=src; img.alt='Фото с турнира';
-            a.appendChild(img); grid.appendChild(a);
-          });
-        }catch{ count.textContent='ошибка загрузки'; }
-      }
-
-      function openLb(i){ idx=i; lbImg.src=photos[idx]; lb.style.display='flex'; }
-      function closeLb(){ lb.style.display='none'; lbImg.src=''; }
-      function prev(){ if(!photos.length)return; idx=(idx-1+photos.length)%photos.length; lbImg.src=photos[idx]; }
-      function next(){ if(!photos.length)return; idx=(idx+1)%photos.length; lbImg.src=photos[idx]; }
-
-      lbClose.addEventListener('click', closeLb);
-      lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLb(); });
-      lbPrev.addEventListener('click', prev);
-      lbNext.addEventListener('click', next);
-
-      // свайпы для мобилок
-      let sx=0, sy=0;
-      lb.addEventListener('touchstart', e=>{ const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; }, {passive:true});
-      lb.addEventListener('touchend', e=>{
-        const t=e.changedTouches[0]; const dx=t.clientX-sx; const dy=t.clientY-sy;
-        if (Math.abs(dx) > 40 && Math.abs(dy) < 40){ dx<0 ? next() : prev(); }
-      }, {passive:true});
-
-      document.addEventListener('keydown',(e)=>{
-        if(lb.style.display!=='flex') return;
-        if(e.key==='Escape') closeLb();
-        if(e.key==='ArrowLeft') prev();
-        if(e.key==='ArrowRight') next();
-      });
-
-      loadPhotos();
-
-      // --- RANDOMIZE TOURNAMENT W/G + DRINKS ---
-      (function randomizeTournament(){
-        const rows = document.querySelectorAll('#table-tournament tr');
-        // пропускаем заголовок (i=1..end)
-        for (let i = 1; i < rows.length; i++){
-          const cells = rows[i].querySelectorAll('td');
-          if (cells.length < 3) continue;
-          const games = Math.floor(Math.random()*6);         // 0..5
-          const wins  = Math.floor(Math.random()*(games+1)); // 0..games
-          const drinks= Math.floor(Math.random()*6);         // 0..5
-          cells[1].textContent = `${wins} / ${games}`;
-          cells[2].textContent = drinks.toString();
-        }
-      })();
-
-    }); // DOMContentLoaded
+    }
   </script>
 </body>
 </html>
