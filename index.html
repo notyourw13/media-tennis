@@ -14,13 +14,17 @@
     html{scroll-behavior:smooth}
     body{margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg)}
 
-    /* Layout mobile-first */
+    /* ===== LAYOUT (mobile-first) ===== */
     .wrap{display:grid; grid-template-columns:1fr; min-height:100dvh}
     main{order:1; padding:22px 16px 60px; max-width:1000px; margin:0 auto}
     aside{order:2; background:var(--sidebar); color:#e5e7eb; padding:22px 16px; border-top:6px solid var(--accent)}
-    @media (min-width:980px){ .wrap{grid-template-columns:320px 1fr} aside{order:1; position:sticky; top:0; height:100dvh; overflow:auto; border-top:none} main{order:2; padding:30px 28px 64px} }
+    @media (min-width:980px){
+      .wrap{grid-template-columns:320px 1fr}
+      aside{order:1; position:sticky; top:0; height:100dvh; overflow:auto; border-top:none}
+      main{order:2; padding:30px 28px 64px}
+    }
 
-    /* Header */
+    /* ===== HEADER ===== */
     .header{display:flex; align-items:center; gap:12px; flex-wrap:wrap; border-bottom:2px solid var(--line); padding-bottom:14px}
     .avatar{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid #e2e8f0}
     .name{font-size:28px; font-weight:800; letter-spacing:.04em; margin:0}
@@ -28,12 +32,12 @@
     .role{margin:2px 0 0; font-weight:600; color:#374151; font-size:14px}
     .notice{margin:8px 0 0; color:#6b7280; font-size:13px}
 
-    /* Top nav */
+    /* ===== TOP NAV ===== */
     .topnav{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 0}
     .chip{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:#374151; text-decoration:none; font-weight:700; font-size:13px}
     .chip:hover{border-color:#cbd5e1}
 
-    /* Sections */
+    /* ===== SECTIONS ===== */
     section{padding:20px 0; border-bottom:2px solid var(--line)}
     section:last-of-type{border-bottom:none}
     h2{font-size:18px; letter-spacing:.12em; margin:0 0 12px; color:#111827}
@@ -45,7 +49,7 @@
     .bullets li{margin:.28rem 0}
     .link{color:var(--link); text-decoration:none}
 
-    /* Sidebar */
+    /* ===== SIDEBAR (CV) ===== */
     .photo{width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:14px; border:3px solid #1f2937; box-shadow:0 6px 28px rgba(0,0,0,.35)}
     .label{letter-spacing:.35em; font-weight:700; color:#9ca3af; font-size:12px; margin:16px 0 8px}
     .block{margin:12px 0 18px}
@@ -56,7 +60,7 @@
     .contact a{color:#e5e7eb; text-decoration:none}
     .contact a:hover{opacity:.85}
 
-    /* Collapsible photo */
+    /* collapsible photo */
     details.photo-toggle{background:#0f172a; border:1px solid #1f2937; border-radius:12px; padding:10px 12px}
     details.photo-toggle summary{cursor:pointer; list-style:none; outline:none; display:flex; align-items:center; justify-content:space-between; gap:10px}
     details.photo-toggle summary::-webkit-details-marker{display:none}
@@ -64,6 +68,7 @@
     details[open] .caret{transform:rotate(180deg)}
     .ph-wrap{margin-top:10px}
 
+    /* small tweaks */
     @media (max-width:600px){ .name{font-size:24px} .role{font-size:13px} }
     @media print{ aside{position:static; height:auto} .link{color:#111} .chip{border-color:#111} }
   </style>
@@ -71,8 +76,9 @@
 <body>
   <div class="wrap">
 
-    <!-- MAIN (white) -->
+    <!-- ===== MAIN (white) ===== -->
     <main id="top">
+      <!-- Header -->
       <div class="header">
         <img class="avatar" src="photo.jpg" alt="Ruslan A. avatar">
         <div>
@@ -82,6 +88,7 @@
         </div>
       </div>
 
+      <!-- Top navigation -->
       <nav class="topnav" aria-label="Section navigation">
         <a class="chip" href="#experience">Experience</a>
         <a class="chip" href="#strengths">Strengths</a>
@@ -90,6 +97,7 @@
         <a class="chip" href="https://akbulatov.pro" target="_blank" rel="noopener">Full profile →</a>
       </nav>
 
+      <!-- EXPERIENCE -->
       <section id="experience">
         <h2><span class="tag">PROFESSIONAL EXPERIENCE</span></h2>
 
@@ -122,5 +130,114 @@
         </div>
       </section>
 
+      <!-- STRENGTHS -->
       <section id="strengths">
-        <h2><span class="tag">
+        <h2><span class="tag">PROFESSIONAL STRENGTHS</span></h2>
+        <div class="card">
+          <ul class="bullets">
+            <li>Strategic &amp; critical thinking under pressure.</li>
+            <li>High-level communication with ministries &amp; C-suites.</li>
+            <li>Rapid problem-solving in uncertain environments.</li>
+            <li>Skilled in legal, financial &amp; regulatory analysis.</li>
+            <li>Building networks across government and energy leaders.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <h2><span class="tag">EDUCATION &amp; CERTIFICATIONS</span></h2>
+        <div class="card">
+          <ul class="bullets">
+            <li>MSc, Land &amp; Resource Law — Kutafin Moscow State Law University (2018).</li>
+            <li>BSc, Chemical Technology — Gubkin University (2016).</li>
+            <li>Executive Training (2023–2024): Digital Currency &amp; CBDC.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ADDITIONAL -->
+      <section id="more">
+        <h2><span class="tag">ADDITIONAL INFORMATION</span></h2>
+        <div class="card">
+          <p><em>Finalist of “Leaders of Russia” — Russia’s premier nationwide management competition, confirming top leadership potential and providing access to an exclusive government-business executive network.</em></p>
+        </div>
+      </section>
+
+      <footer style="margin-top:20px; color:var(--muted); font-size:14px">
+        © <span id="y"></span> Ruslan A. • This page mirrors the one-page CV. For updates and full portfolio visit
+        <a class="link" href="https://akbulatov.pro" target="_blank" rel="noopener">akbulatov.pro</a>.
+      </footer>
+    </main>
+
+    <!-- ===== SIDEBAR (black CV column) ===== -->
+    <aside>
+      <!-- Collapsible photo -->
+      <div class="block">
+        <details class="photo-toggle">
+          <summary>
+            <span>Show photo</span>
+            <span class="caret">▾</span>
+          </summary>
+          <div class="ph-wrap">
+            <img class="photo" src="photo.jpg" alt="Ruslan A. portrait" />
+          </div>
+        </details>
+      </div>
+
+      <div class="block">
+        <div class="label">CONTACTS</div>
+        <ul class="list contact">
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="#60a5fa" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm.75 17.9v-2.4a.75.75 0 10-1.5 0v2.4A8.5 8.5 0 013.6 12h2.4a.75.75 0 100-1.5H3.6A8.5 8.5 0 0111.25 4.1v2.4a.75.75 0 101.5 0V4.1A8.5 8.5 0 0120.4 10.5h-2.4a.75.75 0 100 1.5h2.4a8.5 8.5 0 01-7.65 7.9z"/></svg>
+            <a href="https://akbulatov.pro" target="_blank" rel="noopener">akbulatov.pro</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#22d3ee"><path d="M22 3L2 12l6.5 2 2.5 7 3.5-4 5 4 2.5-21z"/></svg>
+            <a href="https://t.me/Akbulatov_R" target="_blank" rel="noopener">@Akbulatov_R</a>
+          </li>
+          <li>
+            <svg class="icon" viewBox="0 0 24 24" fill="#34d399" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            Dubai (relocation planned from Moscow)
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="label">ABOUT ME</div>
+        <div class="about">
+          Strategic project manager with <strong>9+ years</strong> in oil, gas & petrochemicals. Known for rapid problem-solving under pressure and building trusted relationships with senior officials & C-suite executives.
+          <em>Finalist of “Leaders of Russia” — Russia’s top nationwide management competition, confirming executive potential and granting access to an elite public-private leadership network.</em>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="label">LANGUAGES</div>
+        <ul class="list">
+          <li>• English — B2 (Upper-Intermediate)</li>
+          <li>• Russian — Native (Expert in high-level official & executive communications; drafting materials for President, Prime Minister, and Ministers)</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <a class="chip" href="#top">↑ Back to top</a>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    // current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // after opening photo on mobile, scroll to it
+    const det = document.querySelector('details.photo-toggle');
+    if(det){
+      det.addEventListener('toggle', ()=>{
+        if(det.open && window.innerWidth < 980){
+          det.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    }
+  </script>
+</body>
+</html>
